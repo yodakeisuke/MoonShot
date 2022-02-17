@@ -1,8 +1,8 @@
 import type { NextPage } from 'next'
 import React from 'react'
 import Box from '@mui/material/Box';
-import Editable from '../../components/Editable';
-import StepLeader from '../../components/StepLeader';
+import Editable from '../../molecules/Editable';
+import StepLeader from '../../molecules/StepLeader';
 
 const FocusOnTheTarget: NextPage = () => {
   return (
@@ -13,6 +13,7 @@ const FocusOnTheTarget: NextPage = () => {
           lead="理想の状態を可視化しましょう"
           label="ToBe:"
           placeHolder="（テーマ）についてどのような状態である"
+          rows={3}
         />
       </Box>
       <Box>

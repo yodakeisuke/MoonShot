@@ -1,13 +1,13 @@
 import Head from 'next/head';
 import React from 'react';
 import { ReactNode } from 'react';
-import AppBar from './AppBar';
-import Stepper from './Stepper';
+import AppBar from '../organisms/AppBar';
+import Stepper from './Steps/Stepper';
 import Box from '@mui/material/Box';
 
 type Props = {
   title: string
-  children: ReactNode
+  children?: ReactNode
 }
 
 const Layout: React.FC<Props> = (props) => {
@@ -20,7 +20,9 @@ const Layout: React.FC<Props> = (props) => {
           <AppBar />
         </header>
         <main>
-          <Box sx={{ mx: 'auto', width: '85%',  mt: 3}}>
+          <Box sx={{
+            "> *": {mx: 'auto', width: '85%',  mt: 3}
+            }}>
             <Stepper />
           </Box>
         </main>

@@ -5,10 +5,12 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import FocusOnTheTarget from '../pages/Steps/step1FocusOnTheTarget';
-import DigInto from '../pages/Steps/step2DigInto';
-import Planning from '../pages/Steps/step3Planning-page';
-import Results from '../pages/Steps/step4Results';
+import FocusOnTheTarget from './step1FocusOnTheTarget';
+import DigInto from './step2DigInto';
+import Planning from './step3Planning-page';
+import Results from './step4Results';
+import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
 const steps = ['問題の抽出', '原因の深堀り', '対策の立案'];
 const stepsComponents = [
@@ -38,7 +40,7 @@ export default function HorizontalLinearStepper() {
     };
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box>
       <Stepper activeStep={activeStep} alternativeLabel>
         {steps.map((label) => {
           const stepProps: { completed?: boolean } = {};
@@ -49,7 +51,7 @@ export default function HorizontalLinearStepper() {
           );
         })}
       </Stepper>
-      <Box sx={{ width: "85%", mx: 'auto', my: 3 }}>
+      <Box sx={{mx: 'auto', width: '85%',  mt: 3}}>
         {activeStep === steps.length ? (
           <React.Fragment>
             <Typography align="left" sx={{ mt: 2, mb: 1 }}>
@@ -57,25 +59,28 @@ export default function HorizontalLinearStepper() {
             </Typography>
             <Typography sx={{ px: 0 }} align="left" >{getStepContent(activeStep)}</Typography>
             <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-              <Box sx={{ flex: '1 1 auto' }} />
+              <Box sx={{ flex: '0 0 auto' }} />
               <Button onClick={handleReset}>Reset</Button>
             </Box>
           </React.Fragment>
         ) : (
           <React.Fragment>
             <Typography>{getStepContent(activeStep)}</Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2}}>
+            <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2, justifyContent: 'space-between'}}>
               <Button
                 color="inherit"
                 disabled={activeStep === 0}
                 onClick={handleBack}
-                sx={{ mr: 1, display: "block" }}
+                sx={{ flex: '0 0 auto' }}
               >
-                Back
+                <ArrowLeftIcon /> Back
               </Button>
-              <Box sx={{ flex: '1 1 auto' }} />
-              <Button onClick={handleNext} color="inherit" sx={{ display: "block" }}>
-                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+              <Button onClick={handleNext} color="inherit" sx={{flex: '0 0 auto'}}>
+                {activeStep === steps.length - 1 ? (
+                  'Finish'
+                ) : (
+                  <Box sx={{display: 'inline-flex'}}>Next <ArrowRightIcon /></Box>
+                )}
               </Button>
             </Box>
           </React.Fragment>

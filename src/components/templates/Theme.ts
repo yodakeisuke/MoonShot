@@ -25,14 +25,14 @@ const lighttheme = createTheme({
         root: {
           boxShadow: "0px 3px 5px 0px rgba(0, 0, 0, 0.3);",
           borderRadius: '50%',
-          fontSize: "1.3rem",
+          fontSize: "clamp(21px, 2.5vw, 30px)"
         },
       },
     },
     MuiStepLabel: {
       styleOverrides: {
         label: {
-          fontSize: "0.8rem",
+          fontSize: "clamp(15px, 2vw, 17px)"
         },
       },
     },

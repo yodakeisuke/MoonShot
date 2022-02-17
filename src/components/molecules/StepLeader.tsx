@@ -9,7 +9,12 @@ type Props = {
 export const StepLeader: React.FC<Props> = ({step}) => {
   return (
     <React.Fragment>
-      <Typography variant="caption" sx={{mb: 1}}>Step {step}</Typography>
+      <Typography
+        variant="caption"
+        sx={{mb: 1, fontSize: "clamp(14px, 2.5vw, 18px)"}}
+      >
+        Step {step}
+      </Typography>
       <Divider />
     </React.Fragment>
   )
