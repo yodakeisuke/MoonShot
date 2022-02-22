@@ -1,8 +1,8 @@
 import type { NextPage } from 'next'
 import React from 'react'
 import Box from '@mui/material/Box';
-import Editable from '../../molecules/Editable';
-import StepLeader from '../../molecules/StepLeader';
+import Editable from '../../../components/molecule/Editable';
+import StepLeader from '../../../components/atom/StepLeader';
 
 const FocusOnTheTarget: NextPage = () => {
   return (

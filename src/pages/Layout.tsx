@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import React from 'react';
 import { ReactNode } from 'react';
-import AppBar from '../organisms/AppBar';
-import Stepper from './Steps/Stepper';
+import AppBar from '../components/molecule/AppBar';
+import Stepper from './features/stepToAchieve/Stepper';
 import Box from '@mui/material/Box';
 
 type Props = {

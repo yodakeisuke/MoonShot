@@ -2,10 +2,10 @@ import type { NextPage } from 'next'
 import React from 'react'
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import StepLeader from '../../molecules/StepLeader';
+import StepLeader from '../../../components/atom/StepLeader';
 import IconButton from '@mui/material/IconButton';
-import ActionBox from '../../organisms/ActionBox';
-import DecisionTable from '../../molecules/DecisionTable';
+import ActionBox from '../../../components/molecule/ActionBox';
+import DecisionTable from '../../../components/molecule/DecisionTable';
 
 const Planning: NextPage = () => {
   return (
