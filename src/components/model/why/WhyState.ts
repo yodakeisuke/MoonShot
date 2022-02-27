@@ -1,39 +1,39 @@
-import { atom, atomFamily, DefaultValue, selector, selectorFamily } from "recoil";
-import {WhyCause, WhyId, Why} from "./WhyType";
+import { atom, atomFamily, selector, selectorFamily } from "recoil";
+import { WhyId, WhyCause, Why } from "./WhyType";
 
 export const stateWhyIds = atom<WhyId[]>({
-  key: "state-why-ids",
+  key: "whyIds",
   default: [],
 });
 
+export const selectBottomId = selector<WhyId>({
+  key: "BottomId",
+  get: ({ get }) => {
+    const Ids = get(stateWhyIds);
+    const aryMax = function (a: WhyId, b: WhyId) {return Math.max(a, b);}
+    return Ids.length ? Ids.reduce(aryMax) : 0;
+  },
+});
+
 export const stateWhyCause = atomFamily<WhyCause, WhyId>({
-  key: "state-why-Cause",
+  key: "whyCause",
   default: "",
 });
 
-export const stateWhy = selectorFamily<Why, WhyId>({
-  key: "state-why",
+export const selectWhy = selectorFamily<Why, WhyId>({
+  key: "Why",
   get: (whyId) => ({ get }) => {
     return {
       id: whyId,
       cause: get(stateWhyCause(whyId)),
     };
-  },
-  set: (whyId) => ({ get, set, reset }, newValue) => {
-    if (newValue instanceof DefaultValue) {  // reset
-      reset(stateWhyCause(whyId));
-      return;
-    }
-    set(stateWhyCause(whyId), newValue.cause);
-    if (get(stateWhyIds).find((WhyId) => WhyId === newValue.id)) return;  //add
-    set(stateWhyIds, (prev) => [...prev, newValue.id]);
-  },
+  }
 });
 
-export const stateWhys = selector<Why[]>({
-  key: "state-Whys",
+export const selectAllWhys = selector({
+  key: "getAllWhys",
   get: ({ get }) => {
-    const WhyIds = get(stateWhyIds);
-    return WhyIds.map((WhyId) => get(stateWhy(WhyId)));
+    const whyIds = get(stateWhyIds);
+    return whyIds.map((id) => get(selectWhy(id)));
   },
 });

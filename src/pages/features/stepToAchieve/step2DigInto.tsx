@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import StepLeader from '../../../components/atom/StepLeader';
 import IconButton from '@mui/material/IconButton';
 import WhyBox from '../../../components/molecule/WhyBox';
-import { WhyList } from '../../../components/model/why/Why'
+import { WhyList } from '../../../components/model/why/WhyList'
 
 const DigInto: NextPage = () => {
   return (

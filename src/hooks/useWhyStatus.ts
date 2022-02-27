@@ -1,26 +1,27 @@
-import { useRecoilCallback } from "recoil";
-import { stateWhy, stateWhyIds } from "../components/model/why/WhyState";
-import { Why, WhyId } from "../components/model/why/WhyType";
+import { useRecoilCallback, useRecoilTransaction_UNSTABLE } from "recoil";
+import { stateWhyCause, stateWhyIds } from "../components/model/why/WhyState";
+import { WhyId, WhyCause, Why } from "../components/model/why/WhyType";
 
 export const useWhy = () => {
 
-  const readWhys = useRecoilCallback(({ set }) => (Whys: Why[]) => {
+  const upsertWhy = useRecoilTransaction_UNSTABLE(({set}) => (newWhy: Why) => {
+    set(stateWhyIds, (prev => [...prev,newWhy.id]))
+    set(stateWhyCause(newWhy.id),newWhy.cause)
+  });
+
+  const setUpWhys = useRecoilCallback(() => (Whys: Why[]) => {
     Whys.forEach((why) => {
-      set(stateWhy(why.id), why);
+      upsertWhy(why);
     });
   });
 
-  const upsertWhy = useRecoilCallback(({ set }) => (newWhy: Why) => {
-    set(stateWhy(newWhy.id), newWhy);
-  });
-
-  const removeWhy = useRecoilCallback(({ set, reset }) => (id: WhyId) => {
-    reset(stateWhy(id));
-    set(stateWhyIds, (prev) => prev.filter((id) => id !== id));
+  const removeWhy = useRecoilTransaction_UNSTABLE(({set, reset}) => (id: WhyId) => {
+    set(stateWhyIds, (prev) => prev.filter((e) => e !== id));
+    reset(stateWhyCause(id))
   });
 
   return {
-    readWhys,
+    setUpWhys,
     upsertWhy,
     removeWhy,
   };

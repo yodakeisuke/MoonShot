@@ -12,7 +12,8 @@ export const WhyBox: React.FC<Props> = (whyCount) => {
   return (
     <Box sx={{ display: 'grid', alignItems: 'center'}}>
       <InputBox
-
+        label="test"
+        placeHolder= "holder"
       />
       <WhyButton />
     </Box>

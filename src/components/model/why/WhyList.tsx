@@ -2,33 +2,33 @@ import React from "react"
 import Stack from '@mui/material/Stack';
 import WhyButton from "../../atom/WhyButton";
 import InputBox from "../../atom/InputBox";
-import { stateWhyCause, stateWhys }from "./WhyState"
+import { selectAllWhys, selectBottomId,  }from "./WhyState"
 import { useCallback, useEffect } from "react";
 import { useRecoilValue } from "recoil";
 import { useWhy } from "../../../hooks/useWhyStatus";
+import { WhyCause, WhyId } from "./WhyType";
 
 const apiResponse = {
   Whys: [
-    { id: 1, cause: "first" },
   ],
 };
 
 export const WhyList = () => {
-  const Whys = useRecoilValue(stateWhys);
-  const { readWhys, upsertWhy, removeWhy } = useWhy();
+  const Whys = useRecoilValue(selectAllWhys);
+  const BottomId = useRecoilValue(selectBottomId);
+  const { setUpWhys, upsertWhy, removeWhy } = useWhy();
 
   useEffect(() => {
-    readWhys(apiResponse.Whys);
+    setUpWhys(apiResponse.Whys);
   }, []);
 
   const addWhy = useCallback(() => {
-    const newWhyId = Whys[Whys.length - 1].id + 1;
-
+    const newCause: WhyCause = "dummy";
     upsertWhy({
-      id: newWhyId,
-      cause: "",
+      id: BottomId + 1,
+      cause: newCause
     });
-  }, [Whys, upsertWhy]);
+  }, [Whys, upsertWhy])
 
   return (
     <div>
