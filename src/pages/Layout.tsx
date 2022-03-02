@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import React from 'react';
 import { ReactNode } from 'react';
-import AppBar from '../components/molecule/AppBar';
+import AppBar from '../components/organisms/AppBar';
 import Stepper from './features/stepToAchieve/Stepper';
 import Box from '@mui/material/Box';
 

@@ -1,20 +1,13 @@
 import type { NextPage } from 'next'
 import React from 'react'
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import StepLeader from '../../../components/atom/StepLeader';
-import IconButton from '@mui/material/IconButton';
-import WhyBox from '../../../components/molecule/WhyBox';
-import { WhyList } from '../../../components/model/why/WhyList'
+import StepLeader from '../../../components/molecules/StepLeader';
+import { WhyList } from '../../../components/organisms/model_why/WhyList'
 
 const DigInto: NextPage = () => {
   return (
-    <Box sx={{display: 'grid', gap: 2}}>
-      <StepLeader step={1} />
-      <Typography sx={{fontWeight: "bold", fontSize: "0.9rem"}} align="left" >
-        本質的な改善対象を浮かび上がらせましょう
-      </Typography>
-      <WhyBox whyCount={1} />
+    <Box sx={{display: 'grid', gap: 1}}>
+      <StepLeader step={1} lead="本質的な改善対象を浮かび上がらせましょう" />
       <WhyList />
     </Box>
   )

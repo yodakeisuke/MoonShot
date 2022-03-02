@@ -19,6 +19,11 @@ const lighttheme = createTheme({
       primary: blue[900],
     },
   },
+  typography: {
+    button: {
+        textTransform: "none"
+    }
+  },
   components: {
     MuiStepIcon: {
       styleOverrides: {
