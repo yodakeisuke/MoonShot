@@ -1,16 +1,16 @@
 import React from "react"
 import Stack from '@mui/material/Stack';
-import { selectAllWhys, selectBottomId,  }from "./WhyState"
 import { useCallback, useEffect } from "react";
 import { useRecoilValue } from "recoil";
 import { useWhy } from "../../../hooks/useWhyStatus";
-import { WhyCause, WhyId } from "./WhyType";
 import Button from "@mui/material/Button";
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 import { Box } from "@mui/material";
 import Editable from "../../molecules/Editable";
+import { selectAllWhys, selectBottomWhyId } from "./WhyState";
+import { Why, WhyId } from "./WhyType";
 
 const apiResponse = {
   Whys: [
@@ -18,8 +18,8 @@ const apiResponse = {
 };
 
 export const WhyList = () => {
-  const Whys = useRecoilValue(selectAllWhys);
-  const BottomId = useRecoilValue(selectBottomId);
+  const whys: Why[] = useRecoilValue(selectAllWhys);
+  const bottomWhyId: WhyId = useRecoilValue(selectBottomWhyId);
   const { setUpWhys, upsertWhy, removeWhy } = useWhy();
 
   useEffect(() => {
@@ -28,20 +28,20 @@ export const WhyList = () => {
 
   const addWhy = useCallback(() => {
     upsertWhy({
-      id: BottomId + 1,
+      id: bottomWhyId + 1,
       cause: ""
     });
-  }, [Whys, upsertWhy])
+  }, [whys, upsertWhy])
 
   const popWhy = useCallback(() => {
-    removeWhy(BottomId);
-  }, [Whys, removeWhy])
+    removeWhy(bottomWhyId);
+  }, [whys, removeWhy])
 
   return (
     <React.Fragment>
-        {Whys.map((Why) => (
-          <Stack spacing={1} alignItems="stretch">
-            <Editable label={Why.id} placeHolder={Why.cause} />
+        {whys.map((why) => (
+          <Stack spacing={1}>
+            <Editable label={why.id} placeHolder={why.cause} />
             <KeyboardDoubleArrowDownIcon sx={{alignSelf: "center"}}/>
           </Stack>
           ))}

@@ -1,6 +1,6 @@
 import { useRecoilCallback, useRecoilTransaction_UNSTABLE } from "recoil";
-import { stateWhyCause, stateWhyIds } from "../components/organisms/model_why/WhyState";
-import { WhyId, WhyCause, Why } from "../components/organisms/model_why/WhyType";
+import { stateWhyCause, stateWhyIds } from "../components/organisms/model_Why/WhyState";
+import { WhyId, WhyCause, Why } from "../components/organisms/model_Why/WhyType";
 
 export const useWhy = () => {
 

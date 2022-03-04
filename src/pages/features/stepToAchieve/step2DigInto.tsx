@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import React from 'react'
 import Box from '@mui/material/Box';
 import StepLeader from '../../../components/molecules/StepLeader';
-import { WhyList } from '../../../components/organisms/model_why/WhyList'
+import { WhyList } from '../../../components/organisms/model_Why/WhyList'
 
 const DigInto: NextPage = () => {
   return (

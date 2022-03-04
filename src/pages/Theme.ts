@@ -15,6 +15,10 @@ const lighttheme = createTheme({
       main: indigo[900],
       contrastText: indigo[900],
     },
+    info: {
+      main: indigo[50],
+      contrastText: indigo[900]
+    },
     text: {
       primary: blue[900],
     },

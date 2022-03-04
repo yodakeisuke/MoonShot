@@ -6,10 +6,10 @@ export const stateWhyIds = atom<WhyId[]>({
   default: [],
 });
 
-export const selectBottomId = selector<WhyId>({
-  key: "BottomId",
+export const selectBottomWhyId = selector<WhyId>({
+  key: "BottomWhyId",
   get: ({ get }) => {
-    const Ids = get(stateWhyIds);
+    const Ids: WhyId[] = get(stateWhyIds);
     const aryMax = function (a: WhyId, b: WhyId) {return Math.max(a, b);}
     return Ids.length ? Ids.reduce(aryMax) : 0;
   },

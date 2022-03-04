@@ -26,8 +26,8 @@ export const StepLeader: React.FC<Props> = ({step, lead}) => {
         >
           {lead}
         </Typography>
-        <Tooltip title="how to" sx={{padding: 0.1, mr: 4}}>
-          <Button variant="contained" size="small">tips?</Button>
+        <Tooltip title="how to" sx={{padding: 0.1, mr: 3}}>
+          <Button variant="contained" size="small" color="info" >tips?</Button>
         </Tooltip>
       </Box>
       <Divider />
