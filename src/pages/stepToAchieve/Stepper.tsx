@@ -19,7 +19,7 @@ const stepsComponents = [
   <Planning key={'thirdStep'} />,
   <Results key={'fourthStep'} />,
 ];
-
+// ToDo: Botton fab
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -29,10 +29,6 @@ export default function HorizontalLinearStepper() {
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleReset = () => {
-    setActiveStep(0);
   };
 
   const getStepContent = (activeStep :number) => {
@@ -55,12 +51,19 @@ export default function HorizontalLinearStepper() {
         {activeStep === steps.length ? (
           <React.Fragment>
             <Typography align="left" sx={{ mt: 2, mb: 1 }}>
-              All steps completed - シェアする
+              All steps completed !
             </Typography>
             <Typography sx={{ px: 0 }} align="left" >{getStepContent(activeStep)}</Typography>
             <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
               <Box sx={{ flex: '0 0 auto' }} />
-              <Button onClick={handleReset}>Reset</Button>
+              <Button
+                color="inherit"
+                disabled={activeStep === 0}
+                onClick={handleBack}
+                sx={{ flex: '0 0 auto' }}
+              >
+                <ArrowLeftIcon /> Back
+              </Button>
             </Box>
           </React.Fragment>
         ) : (

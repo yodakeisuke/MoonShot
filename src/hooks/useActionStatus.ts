@@ -1,6 +1,6 @@
 import { useRecoilCallback, useRecoilTransaction_UNSTABLE } from "recoil";
-import { stateActionPlan, stateActionIds, stateActionIsAdopted } from "../components/organisms/model_Action/ActionState";
-import { ActionId, ActionPlan, Action } from "../components/organisms/model_Action/ActionType";
+import { stateActionPlan, stateActionIds, stateActionIsAdopted } from "../components/viewModel/Action/ActionState";
+import { ActionId, ActionPlan, Action } from "../components/viewModel/Action/ActionType";
 
 export const useAction = () => {
 
@@ -24,10 +24,15 @@ export const useAction = () => {
     set(stateActionIsAdopted,true)
   });
 
+  const changeActionPlan = useRecoilCallback(({set}) => (id: ActionId, newPlan: ActionPlan) => {
+    set(stateActionPlan(id),newPlan);
+  });
+
   return {
     setUpActions,
     upsertAction,
     removeAction,
     AdoptAction,
+    changeActionPlan,
   };
 };

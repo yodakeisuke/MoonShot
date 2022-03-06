@@ -1,9 +1,10 @@
 import Head from 'next/head';
 import React from 'react';
 import { ReactNode } from 'react';
-import AppBar from '../components/organisms/AppBar';
-import Stepper from './features/stepToAchieve/Stepper';
+import AppBar from '../components/viewModel/AppBar';
+import Stepper from './stepToAchieve/Stepper';
 import Box from '@mui/material/Box';
+import Footer from '../components/viewModel/Footer';
 
 type Props = {
   title: string
@@ -26,8 +27,8 @@ const Layout: React.FC<Props> = (props) => {
             <Stepper />
           </Box>
         </main>
-        <footer className="flex justify-center">
-          footer
+        <footer>
+          <Footer />
         </footer>
     </React.Fragment>
   )

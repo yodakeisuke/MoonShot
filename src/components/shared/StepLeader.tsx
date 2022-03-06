@@ -13,21 +13,24 @@ type Props = {
 export const StepLeader: React.FC<Props> = ({step, lead}) => {
   return (
     <React.Fragment>
-      <Box sx={{ display: 'flex', alignItems: 'center', height: "3.3rem", pt: 1}}>
+      <Box sx={{ display: 'flex', alignItems: 'end', height: "3.3rem", pt: 0.7, pb: 0.2}}>
         <Typography
           variant="caption"
-          sx={{fontSize: "clamp(14px, 2.5vw, 18px)"}}
+          sx={{fontSize: "clamp(13px, 2.5vw, 17px)"}}
         >
           Step {step}
         </Typography>
         <Typography
-          sx={{fontWeight: "bold", fontSize: "clamp(15px, 2.5vw, 17px)", ml: 2, flex: 1}}
+          sx={{fontWeight: "bold", fontSize: "clamp(13px, 2.5vw, 17px)", ml: 2, flex: 1}}
           align="left"
         >
           {lead}
         </Typography>
-        <Tooltip title="how to" sx={{padding: 0.1, mr: 3}}>
-          <Button variant="contained" size="small" color="info" >tips?</Button>
+        <Tooltip title="how to">
+          <Button variant="contained" color="info"
+            sx={{fontSize: "clamp(10px, 2vw, 14px)", padding: 0.1, mb: 0.4, mx: 0.3}}>
+              tips?
+          </Button>
         </Tooltip>
       </Box>
       <Divider />

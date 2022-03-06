@@ -28,6 +28,7 @@ const lighttheme = createTheme({
         textTransform: "none"
     }
   },
+  // Todo: コンポーネントのstyleに移す
   components: {
     MuiStepIcon: {
       styleOverrides: {

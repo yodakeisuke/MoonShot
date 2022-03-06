@@ -1,26 +1,32 @@
 import React from "react"
 import Stack from '@mui/material/Stack';
 import { useCallback, useEffect } from "react";
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { useWhy } from "../../../hooks/useWhyStatus";
 import Button from "@mui/material/Button";
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 import { Box } from "@mui/material";
-import Editable from "../../molecules/Editable";
-import { selectAllWhys, selectBottomWhyId } from "./WhyState";
-import { Why, WhyId } from "./WhyType";
+import Editable from "../../shared/Editable";
+import { selectAllWhys, selectRootCause } from "./WhyState";
+import { Why } from "./WhyType";
+import { changeEvent } from "../../../pages/GlobalType";
+import { stateGap } from "../Analysis/AnalysisState";
+
+
 
 const apiResponse = {
   Whys: [
+   // {id: 1, cause: "なぜなぜ"}
   ],
 };
 
 export const WhyList = () => {
+  const [gap, setGap] = useRecoilState(stateGap);
   const whys: Why[] = useRecoilValue(selectAllWhys);
-  const bottomWhyId: WhyId = useRecoilValue(selectBottomWhyId);
-  const { setUpWhys, upsertWhy, removeWhy } = useWhy();
+  const rootCause: Why = useRecoilValue(selectRootCause);
+  const { setUpWhys, upsertWhy, removeWhy, changeWhyCause } = useWhy();
 
   useEffect(() => {
     setUpWhys(apiResponse.Whys);
@@ -28,20 +34,31 @@ export const WhyList = () => {
 
   const addWhy = useCallback(() => {
     upsertWhy({
-      id: bottomWhyId + 1,
+      id: rootCause.id + 1,
       cause: ""
     });
-  }, [whys, upsertWhy])
+  }, [whys, upsertWhy]);
 
   const popWhy = useCallback(() => {
-    removeWhy(bottomWhyId);
-  }, [whys, removeWhy])
+    removeWhy(rootCause.id);
+  }, [whys, removeWhy]);
 
   return (
     <React.Fragment>
+      <Box sx={{display: "flex", flexDirection: "column", justifyContent: "center" }}>
+        <Editable
+            label="gap on the surface:"
+            placeHolder={gap}
+            onChange={(ev: changeEvent) => setGap(ev.target.value)}
+        />
+        <KeyboardDoubleArrowDownIcon sx={{alignSelf: "center"}} />
+      </Box>
         {whys.map((why) => (
           <Stack spacing={1}>
-            <Editable label={why.id} placeHolder={why.cause} />
+            <Editable
+              onChange={(ev: changeEvent) => changeWhyCause(why.id, ev.target.value)}
+              label="because..." placeHolder={why.cause}
+            />
             <KeyboardDoubleArrowDownIcon sx={{alignSelf: "center"}}/>
           </Stack>
           ))}
