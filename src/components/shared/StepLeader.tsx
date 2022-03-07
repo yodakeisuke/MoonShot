@@ -27,7 +27,7 @@ export const StepLeader: React.FC<Props> = ({step, lead}) => {
           {lead}
         </Typography>
         <Tooltip title="how to">
-          <Button variant="contained" color="info"
+          <Button variant="contained" color="secondary"
             sx={{fontSize: "clamp(10px, 2vw, 14px)", padding: 0.1, mb: 0.4, mx: 0.3}}>
               tips?
           </Button>

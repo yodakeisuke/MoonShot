@@ -16,11 +16,11 @@ import { stateGap } from "../Analysis/AnalysisState";
 
 
 
-const apiResponse = {
+{/*const apiResponse = {
   Whys: [
-   // {id: 1, cause: "なぜなぜ"}
+    {id: 1, cause: "なぜなぜ"}
   ],
-};
+};*/}
 
 export const WhyList = () => {
   const [gap, setGap] = useRecoilState(stateGap);
@@ -28,9 +28,9 @@ export const WhyList = () => {
   const rootCause: Why = useRecoilValue(selectRootCause);
   const { setUpWhys, upsertWhy, removeWhy, changeWhyCause } = useWhy();
 
-  useEffect(() => {
+  {/*useEffect(() => {
     setUpWhys(apiResponse.Whys);
-  }, []);
+  }, []);*/}
 
   const addWhy = useCallback(() => {
     upsertWhy({

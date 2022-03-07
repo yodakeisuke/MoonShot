@@ -22,7 +22,7 @@ export const Editable: React.FC<Props> = ({label, placeHolder, rows=2 ,onChange}
         rows={rows}
         defaultValue={placeHolder}
         variant="standard"
-        color ="secondary"
+        color ="info"
         inputProps={{style: {fontSize: "clamp(14px, 2.5vw, 17px)"}}}
         sx={{ml: 2, my:1, width: "90%"}}
         onChange={onChange}

@@ -12,11 +12,11 @@ const lighttheme = createTheme({
       contrastText: indigo[900]
     },
     secondary: {
-      main: indigo[900],
+      main: indigo[50],
       contrastText: indigo[900],
     },
     info: {
-      main: indigo[50],
+      main: indigo[900],
       contrastText: indigo[900]
     },
     text: {

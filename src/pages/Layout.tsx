@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import React from 'react';
 import { ReactNode } from 'react';
-import AppBar from '../components/viewModel/AppBar';
-import Stepper from './stepToAchieve/Stepper';
+import AppBar from '../components/viewModel/Header';
+import Stepper from './stepToAchieve/StepperOverall';
 import Box from '@mui/material/Box';
 import Footer from '../components/viewModel/Footer';
 

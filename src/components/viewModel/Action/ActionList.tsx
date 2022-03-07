@@ -16,11 +16,11 @@ import { Why} from "../Why/WhyType";
 import { useWhy } from "../../../hooks/useWhyStatus";
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 
-const apiResponse = {
+{/*const apiResponse = {
   Actions: [
-   // {id: 1, plan: "アクション", isAdopted: false}
+    {id: 1, plan: "アクション", isAdopted: false, cost: 50, performance: 50}
   ],
-};
+};*/}
 
 export const ActionList: React.FC = () => {
   const actions: Action[] = useRecoilValue(selectAllActions);
@@ -30,9 +30,9 @@ export const ActionList: React.FC = () => {
   const { setUpActions, upsertAction, removeAction, changeActionPlan } = useAction();
   const { changeWhyCause } = useWhy();
 
-  useEffect(() => {
+  {/* useEffect(() => {
     setUpActions(apiResponse.Actions);
-  }, []);
+  }, []); */}
 
   const addAction = useCallback(() => {
     const newId: ActionId = bottomActionId + 1;

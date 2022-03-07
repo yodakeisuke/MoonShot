@@ -8,20 +8,20 @@ import { ActionId, Action } from "./ActionType";
 import { Box } from "@mui/material";
 import ActionEval from "./ActionEval";
 
-const apiResponse = {
+{/*const apiResponse = {
   Actions: [
-   // {id: 1, plan: "アクション", isAdopted: false}
+    {id: 1, plan: "アクション", isAdopted: false}
   ],
-};
+};*/}
 
 export const ActionEvalList: React.FC = () => {
   const actions: Action[] = useRecoilValue(selectAllActions);
 
   const { setUpActions } = useAction();
 
-  useEffect(() => {
+  {/*useEffect(() => {
     setUpActions(apiResponse.Actions);
-  }, []);
+  }, []);*/}
 
   return (
     <Box sx={{display: "flex", flexDirection: "column"}}>
