@@ -25,9 +25,9 @@ export const ActionEvalList: React.FC = () => {
 
   return (
     <Box sx={{display: "flex", flexDirection: "column"}}>
-        {actions.map((action) => (
+        {actions.map((action?) => (
           <Stack spacing={1}>
-            <ActionEval  plan={action.plan} actionId={action.id} />
+            <ActionEval  plan={action?.plan} actionId={action?.id} />
           </Stack>
           ))}
     </Box>

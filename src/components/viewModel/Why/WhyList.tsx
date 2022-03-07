@@ -53,11 +53,11 @@ export const WhyList = () => {
         />
         <KeyboardDoubleArrowDownIcon sx={{alignSelf: "center"}} />
       </Box>
-        {whys.map((why) => (
+        {whys.map((why?) => (
           <Stack spacing={1}>
             <Editable
-              onChange={(ev: changeEvent) => changeWhyCause(why.id, ev.target.value)}
-              label="because..." placeHolder={why.cause}
+              onChange={(ev: changeEvent) => changeWhyCause(why?.id, ev.target.value)}
+              label="because..." placeHolder={why?.cause}
             />
             <KeyboardDoubleArrowDownIcon sx={{alignSelf: "center"}}/>
           </Stack>

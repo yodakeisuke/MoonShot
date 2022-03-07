@@ -52,12 +52,12 @@ export const ActionList: React.FC = () => {
               label="root cause" placeHolder={rootCause.cause}
       />
       <KeyboardDoubleArrowUpIcon sx={{alignSelf: "center"}}/>
-        {actions.map((action) => (
+        {actions.map((action?) => (
           <Stack spacing={1}>
             <Box sx={{display :"flex", justifyContent: "space-between", alignItems: "center"}}>
-              <Editable onChange={(ev: changeEvent) => changeActionPlan(action.id, ev.target.value)}
-                label="then..." placeHolder={action.plan}/>
-              <IconButton onClick={() => removeAction(action.id)}>
+              <Editable onChange={(ev: changeEvent) => changeActionPlan(action?.id, ev.target.value)}
+                label="then..." placeHolder={action?.plan}/>
+              <IconButton onClick={() => removeAction(action?.id)}>
                 <DeleteForeverIcon/ >
               </IconButton>
             </Box>
