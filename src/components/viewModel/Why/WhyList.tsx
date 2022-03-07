@@ -53,15 +53,18 @@ export const WhyList = () => {
         />
         <KeyboardDoubleArrowDownIcon sx={{alignSelf: "center"}} />
       </Box>
+      <Stack spacing={1}>
         {whys.map((why?) => (
-          <Stack spacing={1}>
+          <Box sx={{display: "grid"}}>
             <Editable
               onChange={(ev: changeEvent) => changeWhyCause(why?.id, ev.target.value)}
               label="because..." placeHolder={why?.cause}
             />
-            <KeyboardDoubleArrowDownIcon sx={{alignSelf: "center"}}/>
-          </Stack>
-          ))}
+            <KeyboardDoubleArrowDownIcon sx={{justifySelf: "center"}}/>
+          </Box>
+          ))
+        }
+      </Stack>
       <Box sx={{ display: 'flex', justifyContent: 'space-evenly' }}>
         <Button onClick={popWhy} variant="contained" size="medium">
           TRUE? <ArrowUpwardIcon />
