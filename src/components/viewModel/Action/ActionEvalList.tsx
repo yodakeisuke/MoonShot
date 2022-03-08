@@ -1,11 +1,10 @@
 import React from "react"
-import Stack from '@mui/material/Stack';
 import { selectAllActions, selectBottomActionId }from "./ActionState"
 import { useEffect } from "react";
 import { useRecoilValue } from "recoil";
 import { useAction } from "../../../hooks/useActionStatus";
 import { ActionId, Action } from "./ActionType";
-import { Box } from "@mui/material";
+import { Box, List, ListItem } from "@mui/material";
 import ActionEval from "./ActionEval";
 
 {/*const apiResponse = {
@@ -25,11 +24,14 @@ export const ActionEvalList: React.FC = () => {
 
   return (
     <Box sx={{display: "flex", flexDirection: "column"}}>
+      <List sx={{width: '100%'}}>
         {actions.map((action?) => (
-          <Stack spacing={1}>
+          <ListItem key={action?.id} disablePadding={true}>
             <ActionEval  plan={action?.plan} actionId={action?.id} />
-          </Stack>
-          ))}
+          </ListItem>
+          ))
+        }
+      </List>
     </Box>
   );
 };

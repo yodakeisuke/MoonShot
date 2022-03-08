@@ -1,12 +1,11 @@
 import React from "react"
-import Stack from '@mui/material/Stack';
 import { selectAllActions, selectBestAction, selectBottomActionId }from "./ActionState"
 import { useCallback, useEffect } from "react";
 import { useRecoilValue } from "recoil";
 import { useAction } from "../../../hooks/useActionStatus";
 import { ActionId, Action } from "./ActionType";
 import Button from "@mui/material/Button";
-import { Box, IconButton } from "@mui/material";
+import { Box, IconButton, ListItem } from "@mui/material";
 import Editable from "../../shared/Editable";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
@@ -15,6 +14,7 @@ import { selectRootCause } from "../Why/WhyState";
 import { Why} from "../Why/WhyType";
 import { useWhy } from "../../../hooks/useWhyStatus";
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
+import { List } from "@mui/material";
 
 {/*const apiResponse = {
   Actions: [
@@ -52,17 +52,20 @@ export const ActionList: React.FC = () => {
               label="root cause" placeHolder={rootCause.cause}
       />
       <KeyboardDoubleArrowUpIcon sx={{alignSelf: "center"}}/>
+      <List sx={{width: '100%'}}>
         {actions.map((action?) => (
-          <Stack spacing={1}>
-            <Box sx={{display :"flex", justifyContent: "space-between", alignItems: "center"}}>
+          <ListItem key={action?.id} disablePadding={true}>
+            <Box sx={{display :"flex", justifyContent: "space-between", alignItems: "center", flex: 1}}>
               <Editable onChange={(ev: changeEvent) => changeActionPlan(action?.id, ev.target.value)}
                 label="then..." placeHolder={action?.plan}/>
               <IconButton onClick={() => removeAction(action?.id)}>
                 <DeleteForeverIcon/ >
               </IconButton>
             </Box>
-          </Stack>
-          ))}
+          </ListItem>
+          ))
+        }
+      </List>
       <Button onClick={addAction}
         variant="contained" size="medium" sx={{width: "20%", alignSelf: "center"}}>
         <AddCircleIcon />

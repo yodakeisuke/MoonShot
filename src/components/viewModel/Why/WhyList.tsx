@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
-import { Box } from "@mui/material";
+import { Box, List, ListItem } from "@mui/material";
 import Editable from "../../shared/Editable";
 import { selectAllWhys, selectRootCause } from "./WhyState";
 import { Why } from "./WhyType";
@@ -53,18 +53,20 @@ export const WhyList = () => {
         />
         <KeyboardDoubleArrowDownIcon sx={{alignSelf: "center"}} />
       </Box>
-      <Stack spacing={1}>
-        {whys.map((why?) => (
-          <Box sx={{display: "grid"}}>
-            <Editable
-              onChange={(ev: changeEvent) => changeWhyCause(why?.id, ev.target.value)}
-              label="because..." placeHolder={why?.cause}
-            />
-            <KeyboardDoubleArrowDownIcon sx={{justifySelf: "center"}}/>
-          </Box>
-          ))
-        }
-      </Stack>
+      <List sx={{width: '100%'}}>
+        {whys.map((why) => (
+          <ListItem key={why?.id} disablePadding={true}>
+            <Box sx={{display: "grid", flex: 1}}>
+              <Editable
+                onChange={(ev: changeEvent) => changeWhyCause(why?.id, ev.target.value)}
+                label="because..." placeHolder={why?.cause}
+              />
+              <KeyboardDoubleArrowDownIcon sx={{justifySelf: "center"}}/>
+            </Box>
+          </ListItem>
+          )
+        )}
+      </List>
       <Box sx={{ display: 'flex', justifyContent: 'space-evenly' }}>
         <Button onClick={popWhy} variant="contained" size="medium">
           TRUE? <ArrowUpwardIcon />

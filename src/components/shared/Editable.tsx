@@ -14,7 +14,7 @@ type Props = {
 
 export const Editable: React.FC<Props> = ({label, placeHolder, rows=2 ,onChange}) => {
   return (
-    <Paper elevation={3} sx={{my: 2, flex: 1}}>
+    <Paper elevation={3} sx={{my: 2, flex: "1"}}>
       <TextField
         id="filled-multiline-static"
         label={label}
