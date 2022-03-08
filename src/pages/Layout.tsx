@@ -1,10 +1,10 @@
 import Head from 'next/head';
 import React from 'react';
 import { ReactNode } from 'react';
-import AppBar from '../components/viewModel/Header';
+import AppBar from '../components/Header';
 import Stepper from './stepToAchieve/StepperOverall';
 import Box from '@mui/material/Box';
-import Footer from '../components/viewModel/Footer';
+import Footer from '../components/Footer';
 
 type Props = {
   title: string

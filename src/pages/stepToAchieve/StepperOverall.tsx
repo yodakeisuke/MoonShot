@@ -4,14 +4,14 @@ import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Typography from '@mui/material/Typography';
-import FocusOnTheTarget from './Step1FocusOnTheTarget';
-import DigInto from './Step2DigInto';
-import Planning from './Step3Planning';
-import Results from './Step4Results';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 import Fab from '@mui/material/Fab';
+import FocusOnTheTarget from './Step1FocusOnTheTarget';
+import DigInto from './Step2DigInto';
+import Planning from './Step3Planning';
+import Results from './Step4Results';
 
 const steps = ['問題の抽出', '原因の深堀り', '対策の立案'];
 
