@@ -9,7 +9,7 @@ import { Box, IconButton, ListItem } from "@mui/material";
 import Editable from "../../shared/Editable";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-import { changeEvent } from "../../../pages/GlobalType";
+import { changeEvent } from "../GlobalType";
 import { selectRootCause } from "../Why/WhyState";
 import { Why} from "../Why/WhyType";
 import { useWhy } from "../../../hooks/useWhyStatus";

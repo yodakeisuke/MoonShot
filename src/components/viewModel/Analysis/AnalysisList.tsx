@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import { useRecoilCallback, useRecoilState } from "recoil";
 import { Box } from "@mui/material";
 import Editable from "../../shared/Editable";
-import { changeEvent } from "../../../pages/GlobalType";
+import { changeEvent } from "../GlobalType";
 import StepLeader from "../../shared/StepLeader";
 import { stateAsIs, stateGap, stateToBe } from "./AnalysisState";
 import { Analysis } from "./AnalysisType";

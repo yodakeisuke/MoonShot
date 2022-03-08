@@ -11,7 +11,7 @@ import { Box, List, ListItem } from "@mui/material";
 import Editable from "../../shared/Editable";
 import { selectAllWhys, selectRootCause } from "./WhyState";
 import { Why } from "./WhyType";
-import { changeEvent } from "../../../pages/GlobalType";
+import { changeEvent } from "../GlobalType";
 import { stateGap } from "../Analysis/AnalysisState";
 
 
