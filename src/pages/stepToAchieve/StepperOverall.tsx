@@ -8,10 +8,11 @@ import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 import Fab from '@mui/material/Fab';
-import FocusOnTheTarget from './Step1FocusOnTheTarget';
-import DigInto from './Step2DigInto';
-import Planning from './Step3Planning';
-import Results from './Step4Results';
+import FocusOnTheTarget from './step1FocusOnTheTarget';
+import DigInto from './step2DigInto';
+import Planning from './step3Planning';
+import Results from './step4Results';
+import { NextPage } from 'next';
 
 const steps = ['問題の抽出', '原因の深堀り', '対策の立案'];
 
@@ -22,7 +23,7 @@ const stepsComponents = [
   <Results key={'fourthStep'} />,
 ];
 
-export const StepperOverall: React.FC = () => {
+export const StepperOverall: NextPage = () => {
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
