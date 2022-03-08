@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import { ReactNode } from 'react';
 import AppBar from '../components/Header';
-import Stepper from './stepToAchieve/StepperOverall';
+import Stepper from './stepsToAchieve/StepperOverall';
 import Box from '@mui/material/Box';
 import Footer from '../components/Footer';
 
