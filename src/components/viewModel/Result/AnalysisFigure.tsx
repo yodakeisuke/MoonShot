@@ -14,23 +14,24 @@ export const AnalysisFigure: React.FC = () => {
 
   return (
     //Todo: レスポンシブ
-    <Box sx={{display: "flex", flexDirection: 'column', justifyContent: "center", alignItems: "center"}}>
-      <Box sx={{display: "flex", justifyContent: "center", alignItems: "center", gap: 4}}>
+    <Box sx={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+      <Box sx={{display: "flex", flexDirection: {xs: "column", md: "row"},
+        justifyContent: "center", alignItems: "center", gap: 4}}>
         <Card elevation={1}
-          sx={{bgcolor: "#F5F5F5", width: "200px", height: "150px"}}>
+          sx={{bgcolor: "#F5F5F5", width: {xs: "60vw", md: "27vw"}, height: {xs: "100px", md: "160px"}}}>
           <CardHeader subheader="AsIs" sx={{p: 0.1, textAlign: "center"}}/>
           <CardContent sx={{p: 1}}>{asIs}</CardContent>
         </Card>
-        <CompareArrowsIcon />
+        <CompareArrowsIcon sx={{transform: {xs: "rotate(90deg)", md: "rotate(0deg)"}}}/>
         <Card elevation={1}
-          sx={{bgcolor :"#F5F5F5", width: "200px", height: "150px"}}>
+          sx={{bgcolor :"#F5F5F5", width: {xs: "60vw", md: "27vw"}, height: {xs: "100px", md: "160px"}}}>
           <CardHeader subheader="ToBe" sx={{p: 0.1, textAlign: "center"}}/>
           <CardContent sx={{p: 1}}>{toBe}</CardContent>
         </Card>
       </Box>
-      <ArrowDownwardIcon sx={{mb: 2, justifySelf: "center"}}/>
+      <ArrowDownwardIcon sx={{mb: 2, justifySelf: "center", mt: {xs: 2, md: 0}}}/>
       <Card elevation={1}
-        sx={{bgcolor :"#F5F5F5", width: "300px", height: "100px", justifySelf: "center"}}>
+        sx={{bgcolor :"#F5F5F5", width: "60vw", height: "100px", justifySelf: "center"}}>
         <CardHeader subheader="Gap" subheaderTypographyProps={{color: yellow[700]}}
           sx={{p: 0.1, textAlign: "center"}}
           />

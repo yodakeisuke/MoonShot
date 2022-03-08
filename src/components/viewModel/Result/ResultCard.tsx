@@ -33,7 +33,7 @@ export const ResultCard: React.FC = () => {
           <Typography>WHY?</Typography>
         </Box>
         <Card elevation={1}
-          sx={{bgcolor: "#F5F5F5", width: "300px", height: "100px", justifySelf: "center"}}>
+          sx={{bgcolor: "#F5F5F5", width: "60vw", height: "100px", justifySelf: "center"}}>
           <CardHeader subheader="root cause"  subheaderTypographyProps={{color: yellow[700]}}
             sx={{p: 0.1, textAlign: "center"}}
           />
@@ -44,7 +44,7 @@ export const ResultCard: React.FC = () => {
           <Typography>THEN...</Typography>
         </Box>
         <Card elevation={1}
-          sx={{bgcolor: "#F5F5F5", width: "300px", height: "100px", justifySelf: "center"}}>
+          sx={{bgcolor: "#F5F5F5", width: "60vw", height: "100px", justifySelf: "center"}}>
           <CardHeader subheader="my action"  subheaderTypographyProps={{color: yellow[700]}}
             sx={{p: 0.1, textAlign: "center"}}
           />
