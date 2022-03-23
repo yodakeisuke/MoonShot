@@ -10,6 +10,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import FollowTheSignsIcon from '@mui/icons-material/FollowTheSigns';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import Link from 'next/link';
+import MuiLink from '@mui/material/Link';
 
 type Props = {
   children? :never
@@ -76,14 +78,26 @@ export const FeatureMenu : React.FC<Props> = () => {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <MenuItem>
-          <FollowTheSignsIcon />&ensp;問題解決する
+          <Link href="/" passHref>
+            <MuiLink underline="none" color="inherit">
+              <FollowTheSignsIcon />&ensp;問題解決する
+            </MuiLink>
+          </Link>
         </MenuItem>
         <MenuItem>
-          <TravelExploreIcon />&ensp;みんなの問題解決を探す
+          <Link href="/MyAchievementList" passHref>
+            <MuiLink underline="none" color="inherit">
+              <TravelExploreIcon />&ensp;みんなの問題解決を探す
+            </MuiLink>
+          </Link>
         </MenuItem>
         <Divider />
         <MenuItem>
-          <AccountBoxIcon />&ensp;自分の問題解決を管理
+          <Link href="/myAchievements/MyAchievementList" as="myAchievements" passHref>
+            <MuiLink underline="none" color="inherit">
+              <AccountBoxIcon />&ensp;自分の問題解決を管理
+            </MuiLink>
+          </Link>
         </MenuItem>
       </Menu>
     </React.Fragment>
