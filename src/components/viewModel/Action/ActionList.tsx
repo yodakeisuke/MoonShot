@@ -1,6 +1,6 @@
 import React from "react"
-import { selectAllActions, selectBestAction, selectBottomActionId }from "./ActionState"
-import { useCallback, useEffect } from "react";
+import { selectAllActions, selectBottomActionId }from "./ActionState"
+import { useCallback } from "react";
 import { useRecoilValue } from "recoil";
 import { useAction } from "../../../hooks/useActionStatus";
 import { ActionId, Action } from "./ActionType";
