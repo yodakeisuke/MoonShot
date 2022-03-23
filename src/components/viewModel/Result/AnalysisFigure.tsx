@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box'
 import React from 'react'
-import { Card, CardContent, CardHeader, Paper } from '@mui/material';
+import { Card, CardContent, CardHeader } from '@mui/material';
 import { useRecoilValue } from 'recoil';
 import { stateAsIs, stateToBe, stateGap } from '../Analysis/AnalysisState';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
@@ -13,7 +13,6 @@ export const AnalysisFigure: React.FC = () => {
   const Gap = useRecoilValue(stateGap);
 
   return (
-    //Todo: レスポンシブ
     <Box sx={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
       <Box sx={{display: "flex", flexDirection: {xs: "column", md: "row"},
         justifyContent: "center", alignItems: "center", gap: 4}}>
