@@ -1,6 +1,5 @@
 import React from "react"
-import Stack from '@mui/material/Stack';
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { useWhy } from "../../../hooks/useWhyStatus";
 import Button from "@mui/material/Button";
@@ -14,15 +13,13 @@ import { Why } from "./WhyType";
 import { changeEvent } from "../GlobalType";
 import { stateGap } from "../Analysis/AnalysisState";
 
-
-
 {/*const apiResponse = {
   Whys: [
     {id: 1, cause: "なぜなぜ"}
   ],
 };*/}
 
-export const WhyList = () => {
+export const WhyList: React.FC = () => {
   const [gap, setGap] = useRecoilState(stateGap);
   const whys: Why[] = useRecoilValue(selectAllWhys);
   const rootCause: Why = useRecoilValue(selectRootCause);
