@@ -37,6 +37,8 @@ yarn-error.log*
 *.tsbuildinfo
 app.env
 
+amplify/backend/auth/moonshotc3213f93/cli-inputs.json
+
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
 amplify/.config/local-*
@@ -57,5 +59,3 @@ amplifytools.xcconfig
 .secret-*
 **.sample
 #amplify-do-not-edit-end
-amplify/team-provider-info.json
-amplify/backend/auth/moonshotc3213f93/cli-inputs.json

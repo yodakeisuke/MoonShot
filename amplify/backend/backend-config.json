@@ -1,6 +1,6 @@
 {
   "auth": {
-    "moonshotc3213f93": {
+    "moonshot6edf69d7": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],

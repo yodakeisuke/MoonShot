@@ -5,17 +5,18 @@ import awsExports from 'src/aws-exports';
 import { NextPage } from 'next';
 import React from 'react';
 import Layout from '../Layout';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
+import ResultCard from 'src/components/viewModel/Result/ResultCard';
 Amplify.configure(awsExports);
 
-const MyAchievementList: NextPage = () => {
+const SaveMyAchievement: NextPage = () => {
   return (
     <Authenticator>
     {({ signOut, user }) => (
-      <Layout title="myAchievement" >
+      <Layout title="save" >
         <Box sx={{mx: 'auto', width: '85%',  mt: 3}}>
-
-          <button onClick={signOut}>Sign out</button>
+          <Typography>以下の内容を保存します</Typography>
+          <ResultCard />
         </Box>
       </Layout>
     )}
@@ -23,4 +24,4 @@ const MyAchievementList: NextPage = () => {
   )
 }
 
-export default MyAchievementList
+export default SaveMyAchievement

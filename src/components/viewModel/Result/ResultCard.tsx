@@ -6,14 +6,9 @@ import { CardHeader } from '@mui/material';
 import AddTaskIcon from '@mui/icons-material/AddTask';
 import React from 'react';
 import { CardContent } from '@mui/material';
-import { CardActions } from '@mui/material';
 import AnalysisFigure from './AnalysisFigure';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import { yellow } from '@mui/material/colors';
-import { Button } from '@mui/material';
-import ShareIcon from '@mui/icons-material/Share';
-import SaveIcon from '@mui/icons-material/Save';
-
 export const ResultCard: React.FC = () => {
 
   const RootCause = useRecoilValue(selectRootCause);
@@ -51,14 +46,6 @@ export const ResultCard: React.FC = () => {
           <CardContent sx={{p: 1}}>{BestAction?.plan}</CardContent>
         </Card>
       </CardContent>
-      <CardActions sx={{display: "flex", justifyContent: "space-around"}}>
-        <Button variant="outlined" color="inherit" size="large" sx={{my: 3, py: 1, px: 2}}>
-          <SaveIcon />&ensp; Save
-        </Button>
-        <Button variant="outlined" color="inherit" size="large" sx={{my: 3, py: 1, px: 2}}>
-          <ShareIcon />&ensp;  Share
-        </Button>
-      </CardActions>
     </Card>
   );
 };

@@ -1,0 +1,184 @@
+﻿schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
+
+type Achievement {
+  acion: String
+  asIs: String
+  cause: String
+  createdAt: AWSDateTime!
+  gap: String
+  id: ID!
+  theme: String!
+  toBe: String
+  updatedAt: AWSDateTime!
+  user: String!
+}
+
+type ModelAchievementConnection {
+  items: [Achievement]!
+  nextToken: String
+}
+
+type Mutation {
+  createAchievement(condition: ModelAchievementConditionInput, input: CreateAchievementInput!): Achievement
+  deleteAchievement(condition: ModelAchievementConditionInput, input: DeleteAchievementInput!): Achievement
+  updateAchievement(condition: ModelAchievementConditionInput, input: UpdateAchievementInput!): Achievement
+}
+
+type Query {
+  getAchievement(id: ID!): Achievement
+  listAchievements(filter: ModelAchievementFilterInput, limit: Int, nextToken: String): ModelAchievementConnection
+}
+
+type Subscription {
+  onCreateAchievement: Achievement @aws_subscribe(mutations : ["createAchievement"])
+  onDeleteAchievement: Achievement @aws_subscribe(mutations : ["deleteAchievement"])
+  onUpdateAchievement: Achievement @aws_subscribe(mutations : ["updateAchievement"])
+}
+
+enum ModelAttributeTypes {
+  _null
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+input CreateAchievementInput {
+  acion: String
+  asIs: String
+  cause: String
+  gap: String
+  id: ID
+  theme: String!
+  toBe: String
+  user: String!
+}
+
+input DeleteAchievementInput {
+  id: ID!
+}
+
+input ModelAchievementConditionInput {
+  acion: ModelStringInput
+  and: [ModelAchievementConditionInput]
+  asIs: ModelStringInput
+  cause: ModelStringInput
+  gap: ModelStringInput
+  not: ModelAchievementConditionInput
+  or: [ModelAchievementConditionInput]
+  theme: ModelStringInput
+  toBe: ModelStringInput
+  user: ModelStringInput
+}
+
+input ModelAchievementFilterInput {
+  acion: ModelStringInput
+  and: [ModelAchievementFilterInput]
+  asIs: ModelStringInput
+  cause: ModelStringInput
+  gap: ModelStringInput
+  id: ModelIDInput
+  not: ModelAchievementFilterInput
+  or: [ModelAchievementFilterInput]
+  theme: ModelStringInput
+  toBe: ModelStringInput
+  user: ModelStringInput
+}
+
+input ModelBooleanInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  eq: Boolean
+  ne: Boolean
+}
+
+input ModelFloatInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  between: [Float]
+  eq: Float
+  ge: Float
+  gt: Float
+  le: Float
+  lt: Float
+  ne: Float
+}
+
+input ModelIDInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  beginsWith: ID
+  between: [ID]
+  contains: ID
+  eq: ID
+  ge: ID
+  gt: ID
+  le: ID
+  lt: ID
+  ne: ID
+  notContains: ID
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  between: [Int]
+  eq: Int
+  ge: Int
+  gt: Int
+  le: Int
+  lt: Int
+  ne: Int
+}
+
+input ModelSizeInput {
+  between: [Int]
+  eq: Int
+  ge: Int
+  gt: Int
+  le: Int
+  lt: Int
+  ne: Int
+}
+
+input ModelStringInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  beginsWith: String
+  between: [String]
+  contains: String
+  eq: String
+  ge: String
+  gt: String
+  le: String
+  lt: String
+  ne: String
+  notContains: String
+  size: ModelSizeInput
+}
+
+input UpdateAchievementInput {
+  acion: String
+  asIs: String
+  cause: String
+  gap: String
+  id: ID!
+  theme: String
+  toBe: String
+  user: String
+}

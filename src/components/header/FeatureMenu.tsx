@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
@@ -80,22 +79,28 @@ export const FeatureMenu : React.FC<Props> = () => {
         <MenuItem>
           <Link href="/" passHref>
             <MuiLink underline="none" color="inherit">
-              <FollowTheSignsIcon />&ensp;問題解決する
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <FollowTheSignsIcon />&ensp;問題解決する
+              </Box>
             </MuiLink>
           </Link>
         </MenuItem>
         <MenuItem>
           <Link href="/MyAchievementList" passHref>
             <MuiLink underline="none" color="inherit">
-              <TravelExploreIcon />&ensp;みんなの問題解決を探す
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <TravelExploreIcon />&ensp;みんなの問題解決を探す
+              </Box>
             </MuiLink>
           </Link>
         </MenuItem>
         <Divider />
         <MenuItem>
-          <Link href="/myAchievements/MyAchievementList" as="myAchievements" passHref>
+          <Link href="/myAchievements/MyAchievementList" as="myList" passHref>
             <MuiLink underline="none" color="inherit">
-              <AccountBoxIcon />&ensp;自分の問題解決を管理
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <AccountBoxIcon />&ensp;自分の問題解決を管理
+              </Box>
             </MuiLink>
           </Link>
         </MenuItem>
