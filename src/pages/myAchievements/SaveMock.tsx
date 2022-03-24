@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
 import { useRecoilValue } from 'recoil';
 import { selectBestAction } from 'src/components/viewModel/Action/ActionState';
@@ -13,8 +12,11 @@ Amplify.configure(awsExports);
 
 import API, { graphqlOperation } from '@aws-amplify/api';
 import { createAchievement } from 'src/graphql/mutations';
+import { onCreateAchievement } from 'src/graphql/subscriptions';
+import { useState } from 'react';
 
 const SaveMock: React.FC = () => {
+  const [saveResult, setSaveResult] = useState()
 
   const rootCause = useRecoilValue(selectRootCause);
   const bestAction = useRecoilValue(selectBestAction);
@@ -35,10 +37,26 @@ const SaveMock: React.FC = () => {
     await API.graphql(graphqlOperation(createAchievement, { input: Achievement }));
   }
 
+  useEffect(() => {
+    const client = API.graphql(graphqlOperation(onCreateAchievement));
+
+    if ('subscribe' in client) {
+      const subscription = client.subscribe({
+        next: (eventData: any) => {
+          const Achievement = eventData.value.data.onCreateAchievement;
+          setSaveResult(Achievement);
+        }
+      });
+
+      return () => subscription.unsubscribe();
+    }
+  }, []);
+
   return (
     <Box sx={{mx: 'auto', width: '85%',  mt: 3}}>
       <Typography>保存</Typography>
       <button onClick={createNewAchievement}>SAVE</button>
+      <Typography>{saveResult}</Typography>
     </Box>
   )
 }
