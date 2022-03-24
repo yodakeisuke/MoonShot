@@ -11,8 +11,8 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import { yellow } from '@mui/material/colors';
 export const ResultCard: React.FC = () => {
 
-  const RootCause = useRecoilValue(selectRootCause);
-  const BestAction = useRecoilValue(selectBestAction);
+  const rootCause = useRecoilValue(selectRootCause);
+  const bestAction = useRecoilValue(selectBestAction);
 
   return (
     <Card sx={{bgcolor: "white"}}>
@@ -32,7 +32,7 @@ export const ResultCard: React.FC = () => {
           <CardHeader subheader="root cause"  subheaderTypographyProps={{color: yellow[700]}}
             sx={{p: 0.1, textAlign: "center"}}
           />
-          <CardContent sx={{p: 1}}>{RootCause?.cause}</CardContent>
+          <CardContent sx={{p: 1}}>{rootCause?.cause}</CardContent>
         </Card>
         <Box sx={{display: "flex", justifyContent: "center", my: 2}}>
           <ArrowDownwardIcon/>
@@ -43,7 +43,7 @@ export const ResultCard: React.FC = () => {
           <CardHeader subheader="my action"  subheaderTypographyProps={{color: yellow[700]}}
             sx={{p: 0.1, textAlign: "center"}}
           />
-          <CardContent sx={{p: 1}}>{BestAction?.plan}</CardContent>
+          <CardContent sx={{p: 1}}>{bestAction?.plan}</CardContent>
         </Card>
       </CardContent>
     </Card>

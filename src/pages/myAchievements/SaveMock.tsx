@@ -14,25 +14,31 @@ Amplify.configure(awsExports);
 import API, { graphqlOperation } from '@aws-amplify/api';
 import { createAchievement } from 'src/graphql/mutations';
 
-async function createNewTodo() {
-  const todo = { name:  "Todo " + Math.floor(Math.random() * 10) };
-  await API.graphql(graphqlOperation(createAchievement, { input: todo }));
-}
-
 const SaveMock: React.FC = () => {
 
-  const RootCause = useRecoilValue(selectRootCause);
-  const BestAction = useRecoilValue(selectBestAction);
+  const rootCause = useRecoilValue(selectRootCause);
+  const bestAction = useRecoilValue(selectBestAction);
   const asIs = useRecoilValue(stateAsIs);
   const toBe = useRecoilValue(stateToBe);
-  const Gap = useRecoilValue(stateGap);
+  const gap = useRecoilValue(stateGap);
+
+  async function createNewAchievement() {
+    const Achievement = {
+      user: "testuser",
+      theme: "testtheme",
+      asIs: asIs,
+      toBe: toBe,
+      gap: gap,
+      cause: rootCause,
+      action: bestAction,
+    };
+    await API.graphql(graphqlOperation(createAchievement, { input: Achievement }));
+  }
 
   return (
     <Box sx={{mx: 'auto', width: '85%',  mt: 3}}>
       <Typography>保存</Typography>
-
-
-
+      <button onClick={createNewAchievement}>SAVE</button>
     </Box>
   )
 }
