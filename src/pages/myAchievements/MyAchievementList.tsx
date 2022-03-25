@@ -5,21 +5,25 @@ import awsExports from 'src/aws-exports';
 import { NextPage } from 'next';
 import React from 'react';
 import Layout from '../Layout';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
+
+import API, { graphqlOperation } from '@aws-amplify/api';
+import { listAchievements } from 'src/graphql/queries';
+
 Amplify.configure(awsExports);
 
 const MyAchievementList: NextPage = () => {
-  return (
-    <Authenticator>
-    {({ signOut, user }) => (
-      <Layout title="myAchievement" >
-        <Box sx={{mx: 'auto', width: '85%',  mt: 3}}>
 
-          <button onClick={signOut}>Sign out</button>
-        </Box>
-      </Layout>
-    )}
-    </Authenticator>
+  async function getAllAchievements() {
+    return await API.graphql(graphqlOperation(listAchievements));
+  }
+  const result = getAllAchievements
+
+  return (
+    <Layout title="myAchievements">
+      <h1>myList</h1>
+      <Typography>{JSON.stringify(result)}</Typography>
+    </Layout>
   )
 }
 

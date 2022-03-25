@@ -102,7 +102,7 @@ export const FeatureMenu : React.FC<Props> = () => {
           </MenuItem>
           <Divider />
           <MenuItem>
-            <Link href="/myAchievements/MyAchievementList" as="myList" passHref>
+            <Link href="/myAchievements/MyAchievementList" as="myAchievements" passHref>
               <MuiLink underline="none" color="inherit">
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                   <AccountBoxIcon />&ensp;自分の問題解決を管理
@@ -111,10 +111,9 @@ export const FeatureMenu : React.FC<Props> = () => {
             </Link>
           </MenuItem>
           <MenuItem>
-
-                <Box onClick={signOut} sx={{ display: "flex", alignItems: "center" }}>
-                  <LogoutIcon />&ensp;ログアウト
-                </Box>
+            <Box onClick={signOut} sx={{ display: "flex", alignItems: "center" }}>
+              <LogoutIcon />&ensp;ログアウト
+            </Box>
           </MenuItem>
         </Menu>
         </React.Fragment>
