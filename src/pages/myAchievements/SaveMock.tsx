@@ -6,7 +6,6 @@ import { stateAsIs, stateToBe, stateGap } from 'src/components/viewModel/Analysi
 import { selectRootCause } from 'src/components/viewModel/Why/WhyState';
 
 import { Amplify } from 'aws-amplify';
-import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import awsExports from 'src/aws-exports';
 Amplify.configure(awsExports);
@@ -54,15 +53,11 @@ const SaveMock: React.FC = () => {
   }, []);
 
   return (
-    <Authenticator>
-    {({ signOut, user }) => (
-      <Box sx={{mx: 'auto', width: '85%',  mt: 3}}>
-        <Typography>保存</Typography>
-        <button onClick={createNewAchievement}>SAVE</button>
-        <Typography>{saveResult}</Typography>
-      </Box>
-    )}
-    </Authenticator>
+    <Box sx={{mx: 'auto', width: '85%',  mt: 3}}>
+      <Typography>保存</Typography>
+      <button onClick={createNewAchievement}>SAVE</button>
+      <Typography>{JSON.stringify(saveResult)}</Typography>
+    </Box>
   )
 }
 

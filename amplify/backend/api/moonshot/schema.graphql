@@ -1,4 +1,4 @@
-type Achievement @model {
+type Achievement @model @auth(rules: [{ allow: private }]) {
   id: ID!
   user: String!
   theme: String
