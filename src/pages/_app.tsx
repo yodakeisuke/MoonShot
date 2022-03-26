@@ -2,6 +2,10 @@ import { AppProps } from 'next/app'
 import React from 'react'
 import Amplify from 'aws-amplify'
 
+import { ThemeProvider } from '@mui/material/styles';
+import lightTheme from "../components/Theme"
+import CssBaseline from '@mui/material/CssBaseline';
+
 import { RecoilRoot } from "recoil";
 import {Authenticator} from '@aws-amplify/ui-react';
 
@@ -11,11 +15,14 @@ import '@aws-amplify/ui-react/styles.css';
 Amplify.configure(awsExports);
 
 const App = ({ Component, pageProps }: AppProps) => (
-  <Authenticator.Provider>
-    <RecoilRoot>
-      <Component {...pageProps} />
-    </RecoilRoot>
-  </Authenticator.Provider>
+  <ThemeProvider theme={lightTheme}>
+    <CssBaseline />
+    <Authenticator.Provider>
+      <RecoilRoot>
+        <Component {...pageProps} />
+      </RecoilRoot>
+    </Authenticator.Provider>
+  </ThemeProvider>
 )
 
 export default App

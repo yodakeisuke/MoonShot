@@ -10,8 +10,6 @@ import { Box, Typography } from '@mui/material';
 import API, { graphqlOperation } from '@aws-amplify/api';
 import { listAchievements } from 'src/graphql/queries';
 
-Amplify.configure(awsExports);
-
 const MyAchievementList: NextPage = () => {
 
   async function getAllAchievements() {

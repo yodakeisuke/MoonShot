@@ -1,4 +1,6 @@
 import * as React from 'react';
+import Link from 'next/link';
+
 import Box from '@mui/material/Box';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -9,10 +11,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import FollowTheSignsIcon from '@mui/icons-material/FollowTheSigns';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import Link from 'next/link';
 import MuiLink from '@mui/material/Link';
-import { Authenticator } from '@aws-amplify/ui-react';
-import LogoutIcon from '@mui/icons-material/Logout';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+
+import { Auth } from 'aws-amplify';
 
 type Props = {
   children? :never
@@ -29,9 +31,17 @@ export const FeatureMenu : React.FC<Props> = () => {
     setAnchorEl(null);
   };
 
+  async function signOut() {
+    try {
+      await Auth.signOut();
+
+    }
+    catch (error) {
+      console.log('error signing out: ', error);
+    }
+  };
+
   return (
-    <Authenticator>
-    {({ signOut }) => (
       <React.Fragment>
         <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
           <Tooltip title="Account settings">
@@ -111,14 +121,16 @@ export const FeatureMenu : React.FC<Props> = () => {
             </Link>
           </MenuItem>
           <MenuItem>
-            <Box onClick={signOut} sx={{ display: "flex", alignItems: "center" }}>
-              <LogoutIcon />&ensp;ログアウト
-            </Box>
+            <Link href="/myAchievements/Account" as="Account" passHref>
+              <MuiLink underline="none" color="inherit">
+                <Box sx={{ display: "flex", alignItems: "center" }}>
+                  <ManageAccountsIcon />&ensp;アカウント設定
+                </Box>
+              </MuiLink>
+            </Link>
           </MenuItem>
         </Menu>
-        </React.Fragment>
-    )}
-    </Authenticator>
+      </React.Fragment>
   );
 }
 

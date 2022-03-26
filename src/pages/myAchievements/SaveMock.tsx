@@ -8,7 +8,6 @@ import { selectRootCause } from 'src/components/viewModel/Why/WhyState';
 import { Amplify } from 'aws-amplify';
 import '@aws-amplify/ui-react/styles.css';
 import awsExports from 'src/aws-exports';
-Amplify.configure(awsExports);
 
 import API, { graphqlOperation } from '@aws-amplify/api';
 import { createAchievement } from 'src/graphql/mutations';
