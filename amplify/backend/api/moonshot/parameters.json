@@ -1,0 +1,12 @@
+{
+  "AppSyncApiName": "moonshot",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authmoonshot03488ae0",
+      "Outputs.UserPoolId"
+    ]
+  },
+  "AuthModeLastUpdated": "2022-03-25T03:16:47.666Z"
+}

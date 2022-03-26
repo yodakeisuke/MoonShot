@@ -6,18 +6,13 @@ import { CardHeader } from '@mui/material';
 import AddTaskIcon from '@mui/icons-material/AddTask';
 import React from 'react';
 import { CardContent } from '@mui/material';
-import { CardActions } from '@mui/material';
 import AnalysisFigure from './AnalysisFigure';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import { yellow } from '@mui/material/colors';
-import { Button } from '@mui/material';
-import ShareIcon from '@mui/icons-material/Share';
-import SaveIcon from '@mui/icons-material/Save';
-
 export const ResultCard: React.FC = () => {
 
-  const RootCause = useRecoilValue(selectRootCause);
-  const BestAction = useRecoilValue(selectBestAction);
+  const rootCause = useRecoilValue(selectRootCause);
+  const bestAction = useRecoilValue(selectBestAction);
 
   return (
     <Card sx={{bgcolor: "white"}}>
@@ -37,7 +32,7 @@ export const ResultCard: React.FC = () => {
           <CardHeader subheader="root cause"  subheaderTypographyProps={{color: yellow[700]}}
             sx={{p: 0.1, textAlign: "center"}}
           />
-          <CardContent sx={{p: 1}}>{RootCause?.cause}</CardContent>
+          <CardContent sx={{p: 1}}>{rootCause?.cause}</CardContent>
         </Card>
         <Box sx={{display: "flex", justifyContent: "center", my: 2}}>
           <ArrowDownwardIcon/>
@@ -48,17 +43,9 @@ export const ResultCard: React.FC = () => {
           <CardHeader subheader="my action"  subheaderTypographyProps={{color: yellow[700]}}
             sx={{p: 0.1, textAlign: "center"}}
           />
-          <CardContent sx={{p: 1}}>{BestAction?.plan}</CardContent>
+          <CardContent sx={{p: 1}}>{bestAction?.plan}</CardContent>
         </Card>
       </CardContent>
-      <CardActions sx={{display: "flex", justifyContent: "space-around"}}>
-        <Button variant="outlined" color="inherit" size="large" sx={{my: 3, py: 1, px: 2}}>
-          <SaveIcon />&ensp; Save
-        </Button>
-        <Button variant="outlined" color="inherit" size="large" sx={{my: 3, py: 1, px: 2}}>
-          <ShareIcon />&ensp;  Share
-        </Button>
-      </CardActions>
     </Card>
   );
 };

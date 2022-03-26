@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-moonshot-dev-164457-authRole",
+      "UnauthRoleArn": "arn:aws:iam::206429412728:role/amplify-moonshot-dev-164457-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::206429412728:role/amplify-moonshot-dev-164457-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-moonshot-dev-164457-deployment",
+      "UnauthRoleName": "amplify-moonshot-dev-164457-unauthRole",
+      "StackName": "amplify-moonshot-dev-164457",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:206429412728:stack/amplify-moonshot-dev-164457/4f3a1630-ab46-11ec-b2f5-0e34deeebe6b",
+      "AmplifyAppId": "d2v7zf0q29ma8x"
+    },
+    "categories": {
+      "auth": {
+        "moonshot03488ae0": {}
+      }
+    }
+  }
+}

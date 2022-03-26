@@ -1,0 +1,10 @@
+type Achievement @model @auth(rules: [{ allow: private }]) {
+  id: ID!
+  user: String!
+  theme: String
+  asIs: String
+  toBe: String
+  gap: String
+  cause: String
+  action: String
+}

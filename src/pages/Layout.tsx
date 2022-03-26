@@ -2,20 +2,19 @@ import Head from 'next/head';
 import React from 'react';
 import { ReactNode } from 'react';
 import AppBar from '../components/header/Header';
-import Stepper from './stepsToAchieve/StepperOverall';
 import Box from '@mui/material/Box';
 import Footer from '../components/footer/Footer';
 
 type Props = {
   title: string
-  children?: ReactNode
+  children: ReactNode
 }
 
-const Layout: React.FC<Props> = (props) => {
+const Layout: React.FC<Props> = ({ title, children }) => {
   return (
     <React.Fragment>
       <Head>
-        <title>{props.title}</title>
+        <title>{title}</title>
       </Head>
         <header>
           <AppBar />
@@ -24,7 +23,7 @@ const Layout: React.FC<Props> = (props) => {
           <Box sx={{
             "> *": {mx: 'auto', width: '85%',  mt: 3}
             }}>
-            <Stepper />
+            {children}
           </Box>
         </main>
         <footer>
