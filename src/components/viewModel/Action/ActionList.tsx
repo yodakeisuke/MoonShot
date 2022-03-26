@@ -48,8 +48,8 @@ export const ActionList: React.FC = () => {
   return (
     <Box sx={{display: "flex", flexDirection: "column"}}>
       <Editable
-              onChange={(ev: changeEvent) => changeWhyCause(rootCause.id, ev.target.value)}
-              label="root cause" placeHolder={rootCause.cause}
+        onChange={(ev: changeEvent) => changeWhyCause(rootCause.id, ev.target.value)}
+        label="root cause" placeHolder={rootCause.cause}
       />
       <KeyboardDoubleArrowUpIcon sx={{alignSelf: "center"}}/>
       <List sx={{width: '100%'}}>

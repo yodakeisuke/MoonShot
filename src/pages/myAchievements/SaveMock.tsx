@@ -5,10 +5,6 @@ import { selectBestAction } from 'src/components/viewModel/Action/ActionState';
 import { stateAsIs, stateToBe, stateGap } from 'src/components/viewModel/Analysis/AnalysisState';
 import { selectRootCause } from 'src/components/viewModel/Why/WhyState';
 
-import { Amplify } from 'aws-amplify';
-import '@aws-amplify/ui-react/styles.css';
-import awsExports from 'src/aws-exports';
-
 import API, { graphqlOperation } from '@aws-amplify/api';
 import { createAchievement } from 'src/graphql/mutations';
 import { onCreateAchievement } from 'src/graphql/subscriptions';
@@ -30,8 +26,8 @@ const SaveMock: React.FC = () => {
       asIs: asIs,
       toBe: toBe,
       gap: gap,
-      cause: rootCause,
-      action: bestAction,
+      cause: rootCause?.cause,
+      action: bestAction?.plan,
     };
     await API.graphql(graphqlOperation(createAchievement, { input: Achievement }));
   }
@@ -41,6 +37,7 @@ const SaveMock: React.FC = () => {
 
     if ('subscribe' in client) {
       const subscription = client.subscribe({
+        // todo: any見直す
         next: (eventData: any) => {
           const Achievement = eventData.value.data.onCreateAchievement;
           setSaveResult(Achievement);

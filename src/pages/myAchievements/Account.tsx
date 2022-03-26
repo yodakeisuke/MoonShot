@@ -3,7 +3,6 @@ import React from 'react';
 import Layout from '../Layout';
 
 import { Authenticator } from '@aws-amplify/ui-react';
-import '@aws-amplify/ui-react/styles.css';
 import { Box, Button, Typography } from '@mui/material';
 
 import LogoutIcon from '@mui/icons-material/Logout';

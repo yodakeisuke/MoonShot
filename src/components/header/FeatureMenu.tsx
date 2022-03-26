@@ -31,16 +31,6 @@ export const FeatureMenu : React.FC<Props> = () => {
     setAnchorEl(null);
   };
 
-  async function signOut() {
-    try {
-      await Auth.signOut();
-
-    }
-    catch (error) {
-      console.log('error signing out: ', error);
-    }
-  };
-
   return (
       <React.Fragment>
         <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
