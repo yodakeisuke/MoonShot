@@ -1,15 +1,16 @@
 import { AsIs, ToBe, Gap } from "../Analysis/AnalysisType";
-import { Why } from "../Why/WhyType";
-import { Action  } from "../Action/ActionType";
+import { WhyCause } from "../Why/WhyType";
+import { ActionPlan  } from "../Action/ActionType";
 
-export type AchivementId = string;
+export type AchivementId = String;
 
 export type Achievement = {
   id: AchivementId;
-  user: string;
+  user: String;
+  theme: String;
   asIs: AsIs;
   toBe: ToBe;
   gap: Gap;
-  cause: Why;
-  action: Action;
+  cause: WhyCause;
+  action: ActionPlan;
 };

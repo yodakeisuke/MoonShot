@@ -92,7 +92,7 @@ export const FeatureMenu : React.FC<Props> = () => {
             </Link>
           </MenuItem>
           <MenuItem>
-            <Link href="/MyAchievementList" passHref>
+            <Link href="/findAchievements/FindAchievements" as="findAchievements" passHref>
               <MuiLink underline="none" color="inherit">
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                   <TravelExploreIcon />&ensp;みんなの問題解決を探す

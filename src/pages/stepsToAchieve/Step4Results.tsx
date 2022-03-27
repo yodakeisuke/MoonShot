@@ -5,7 +5,6 @@ import ShareIcon from '@mui/icons-material/Share';
 import SaveIcon from '@mui/icons-material/Save';
 import ResultCard from '../../components/viewModel/Result/ResultCard'
 import Link from 'next/link';
-import SaveMock from '../myAchievements/SaveMock';
 
 const Results: NextPage = () => {
   return (
@@ -21,7 +20,6 @@ const Results: NextPage = () => {
           <ShareIcon />&ensp;  Share
         </Button>
       </CardActions>
-      <SaveMock />
     </Box>
   )
 }
