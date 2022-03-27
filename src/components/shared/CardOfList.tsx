@@ -1,10 +1,18 @@
-import React, { useState } from "react"
-import { Typography, Button, Card, CardContent, CardHeader } from "@mui/material";
-import { API, graphqlOperation } from "aws-amplify";
-import { deleteAchievement } from "src/graphql/mutations";
-import { AchivementId, Achievement } from "../viewModel/Result/AchievementType";
-import { CardActions } from "@mui/material";
-import { Chip } from "@mui/material";
+import React from 'react';
+import { useState } from 'react';
+
+import { AchivementId, Achievement } from "components/viewModel/Result/AchievementType";
+
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
+import Chip from '@mui/material/Chip';
+
+import { API, graphqlOperation } from 'aws-amplify';
+import { deleteAchievement } from 'graphql/mutations';
 
 type Props = {
   item: Achievement;
