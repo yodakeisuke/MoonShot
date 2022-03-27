@@ -1,7 +1,9 @@
-import type { NextPage } from 'next'
 import React from 'react'
+import type { NextPage } from 'next'
+
 import Box from '@mui/material/Box';
 import StepLeader from '../../components/shared/StepLeader';
+
 import { ActionList } from '../../components/viewModel/Action/ActionList';
 import { ActionEvalList } from '../../components/viewModel/Action/ActionEvalList';
 

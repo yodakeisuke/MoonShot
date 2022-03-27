@@ -1,6 +1,6 @@
-import { useRecoilCallback, useRecoilTransaction_UNSTABLE } from "recoil";
-import { stateWhyCause, stateWhyIds } from "../components/viewModel/Why/WhyState";
-import { WhyId, WhyCause, Why } from "../components/viewModel/Why/WhyType";
+import { useRecoilCallback, useRecoilTransaction_UNSTABLE } from 'recoil';
+import { stateWhyCause, stateWhyIds } from 'components/viewModel/Why/WhyState';
+import { WhyId, WhyCause, Why } from 'components/viewModel/Why/WhyType';
 
 export const useWhy = () => {
 

@@ -1,17 +1,20 @@
-import { Authenticator } from '@aws-amplify/ui-react';
-import { NextPage } from 'next';
 import React from 'react';
-import Layout from 'components/Layout';
-import { Divider, Typography } from '@mui/material';
-
-import API, { graphqlOperation } from '@aws-amplify/api';
-import { listAchievements } from 'graphql/queries';
+import { NextPage } from 'next';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Box } from '@mui/material';
+
+import Layout from 'components/Layout';
+
+import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import CardOfList from 'components/shared/CardOfList';
 import { Achievement } from 'components/viewModel/Result/AchievementType';
+
 import { Auth } from 'aws-amplify';
+import { Authenticator } from '@aws-amplify/ui-react';
+import API, { graphqlOperation } from '@aws-amplify/api';
+import { listAchievements } from 'graphql/queries';
 
 const MyAchievementList: NextPage = () => {
 

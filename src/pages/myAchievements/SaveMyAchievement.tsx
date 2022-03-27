@@ -1,27 +1,28 @@
-import { Authenticator } from '@aws-amplify/ui-react';
-import { NextPage } from 'next';
 import React from 'react';
-import Layout from 'components/Layout';
-import { Box, Fab } from '@mui/material';
-import ResultCard from 'components/viewModel/Result/ResultCard';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { NextPage } from 'next';
 import { useRecoilValue } from 'recoil';
+
+import Layout from 'components/Layout';
+import StepLeader from 'components/shared/StepLeader';
+import Editable from 'components/shared/Editable';
+import ResultCard from 'components/viewModel/Result/ResultCard';
 import { selectBestAction } from 'components/viewModel/Action/ActionState';
 import { stateAsIs, stateToBe, stateGap } from 'components/viewModel/Analysis/AnalysisState';
 import { selectRootCause } from 'components/viewModel/Why/WhyState';
+import { changeEvent } from 'components/viewModel/GlobalType';
 
+import Box from '@mui/material/Box';
+import Fab from '@mui/material/Fab';
+import Button from '@mui/material/Button';
+import SaveAsIcon from '@mui/icons-material/SaveAs';
+import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
+
+import { Authenticator } from '@aws-amplify/ui-react';
 import API, { graphqlOperation } from '@aws-amplify/api';
 import { createAchievement } from 'graphql/mutations';
 import { onCreateAchievement } from 'graphql/subscriptions';
-import { useState } from 'react';
-import Button from '@mui/material/Button';
-import StepLeader from 'components/shared/StepLeader';
-import Editable from 'components/shared/Editable';
-import { changeEvent } from 'components/viewModel/GlobalType';
-import SaveAsIcon from '@mui/icons-material/SaveAs';
-import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
-import Link from 'next/link';
-
 
 const SaveMyAchievement: NextPage = () => {
 
@@ -64,11 +65,7 @@ const SaveMyAchievement: NextPage = () => {
 
   return (
     <Authenticator>
-<<<<<<< HEAD
-    {() => (
-=======
-    {({ user }) => (
->>>>>>> origin/develop
+    {({user}) => (
       <Layout title="save" >
         <Box sx={{mx: 'auto', width: '85%',  mt: 3}}>
           <Box>

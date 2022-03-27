@@ -1,9 +1,11 @@
-import Head from 'next/head';
 import React from 'react';
 import { ReactNode } from 'react';
+import Head from 'next/head';
+
 import AppBar from './header/Header';
-import Box from '@mui/material/Box';
 import Footer from './footer/Footer';
+
+import Box from '@mui/material/Box';
 
 type Props = {
   title: string

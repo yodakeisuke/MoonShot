@@ -1,10 +1,15 @@
-import { Box, Button, CardActions } from '@mui/material'
-import type { NextPage } from 'next'
 import React from 'react'
+import type { NextPage } from 'next'
+import Link from 'next/link';
+
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import CardActions from '@mui/material/CardActions'
 import ShareIcon from '@mui/icons-material/Share';
 import SaveIcon from '@mui/icons-material/Save';
-import ResultCard from '../../components/viewModel/Result/ResultCard'
-import Link from 'next/link';
+
+import ResultCard from 'components/viewModel/Result/ResultCard'
+
 
 const Results: NextPage = () => {
   return (

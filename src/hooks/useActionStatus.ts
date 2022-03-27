@@ -1,6 +1,6 @@
-import { useRecoilCallback, useRecoilTransaction_UNSTABLE } from "recoil";
-import { stateActionPlan, stateActionIds, stateActionIsAdopted } from "../components/viewModel/Action/ActionState";
-import { ActionId, ActionPlan, Action } from "../components/viewModel/Action/ActionType";
+import { useRecoilCallback, useRecoilTransaction_UNSTABLE } from 'recoil';
+import { stateActionPlan, stateActionIds, stateActionIsAdopted } from 'components/viewModel/Action/ActionState';
+import { ActionId, ActionPlan, Action } from 'components/viewModel/Action/ActionType';
 
 export const useAction = () => {
 

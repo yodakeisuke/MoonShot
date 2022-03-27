@@ -1,7 +1,10 @@
-import { Box, Typography } from '@mui/material';
-import { NextPage } from 'next';
 import React from 'react';
-import Layout from '../Layout';
+import { NextPage } from 'next';
+
+import Layout from 'components/Layout';
+
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 const FindAchievements: NextPage = () => {
   return(

@@ -6,8 +6,6 @@ import Layout from 'components/Layout';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-
-
 import LogoutIcon from '@mui/icons-material/Logout';
 
 import { Authenticator } from '@aws-amplify/ui-react';
