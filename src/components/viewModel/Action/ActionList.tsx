@@ -53,7 +53,7 @@ export const ActionList: React.FC = () => {
       />
       <KeyboardDoubleArrowUpIcon sx={{alignSelf: "center"}}/>
       <List sx={{width: '100%'}}>
-        {actions.map((action?) => (
+        {actions.map((action) => (
           <ListItem key={action?.id} disablePadding={true}>
             <Box sx={{display :"flex", justifyContent: "space-between", alignItems: "center", flex: 1}}>
               <Editable onChange={(ev: changeEvent) => changeActionPlan(action?.id, ev.target.value)}
