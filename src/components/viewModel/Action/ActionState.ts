@@ -62,11 +62,10 @@ export const selectAllActions = selector({
   },
 });
 
-export const selectBestAction = selector<Action | undefined>({
+export const selectBestAction = selector<Action>({
   key: "getBestAction",
   get: ({ get }) => {
     const allActions: Action[] = get(selectAllActions);
-    if (!allActions.length) return;
     return allActions.reduce(
       (acc: Action, cur: Action): Action => {
         return acc.cost + acc.performance > cur.cost + cur.performance ? acc : cur;

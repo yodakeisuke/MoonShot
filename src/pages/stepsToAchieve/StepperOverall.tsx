@@ -74,7 +74,7 @@ export const StepperOverall: NextPage = () => {
           </React.Fragment>
         ) : (
           <React.Fragment>
-            <Typography align="left" sx={{ mt: 2, mb: 1 }}>
+            <Typography variant="h6" align="center" sx={{ my: 3 }}>
               All steps completed !
             </Typography>
             <Box>{getStepContent(activeStep)}</Box>

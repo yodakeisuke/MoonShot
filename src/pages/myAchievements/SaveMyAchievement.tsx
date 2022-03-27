@@ -1,22 +1,95 @@
-import { Amplify } from 'aws-amplify';
 import { Authenticator } from '@aws-amplify/ui-react';
-import '@aws-amplify/ui-react/styles.css';
-import awsExports from 'src/aws-exports';
 import { NextPage } from 'next';
 import React from 'react';
 import Layout from '../Layout';
-import { Box, Typography } from '@mui/material';
+import { Box, Fab } from '@mui/material';
 import ResultCard from 'src/components/viewModel/Result/ResultCard';
-Amplify.configure(awsExports);
+import { useEffect } from 'react';
+import { useRecoilValue } from 'recoil';
+import { selectBestAction } from 'src/components/viewModel/Action/ActionState';
+import { stateAsIs, stateToBe, stateGap } from 'src/components/viewModel/Analysis/AnalysisState';
+import { selectRootCause } from 'src/components/viewModel/Why/WhyState';
+
+import API, { graphqlOperation } from '@aws-amplify/api';
+import { createAchievement } from 'src/graphql/mutations';
+import { onCreateAchievement } from 'src/graphql/subscriptions';
+import { useState } from 'react';
+import Button from '@mui/material/Button';
+import StepLeader from 'src/components/shared/StepLeader';
+import Editable from 'src/components/shared/Editable';
+import { changeEvent } from 'src/components/viewModel/GlobalType';
+import SaveAsIcon from '@mui/icons-material/SaveAs';
+import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
+import Link from 'next/link';
 
 const SaveMyAchievement: NextPage = () => {
+
+  const [saveResult, setSaveResult] = useState<String>("SAVE")
+
+  const [theme, setTheme] = useState<String>("");
+  const rootCause = useRecoilValue(selectRootCause);
+  const bestAction = useRecoilValue(selectBestAction);
+  const asIs = useRecoilValue(stateAsIs);
+  const toBe = useRecoilValue(stateToBe);
+  const gap = useRecoilValue(stateGap);
+
+  const createNewAchievement = async ( userName: String | undefined, _theme: String ) => {
+    const user = userName;
+
+    await API.graphql(graphqlOperation(createAchievement, { input: {
+        user: user,
+        theme: _theme,
+        asIs: asIs,
+        toBe: toBe,
+        gap: gap,
+        cause: rootCause.cause,
+        action: bestAction.plan,
+      }
+    }));
+  };
+
+  useEffect(() => {
+    const client = API.graphql(graphqlOperation(onCreateAchievement));
+
+    if ('subscribe' in client) {
+      const subscription = client.subscribe({
+        next: () => {
+          setSaveResult("COMPLETED!");
+        }
+      });
+      return () => subscription.unsubscribe();
+    }
+  }, []);
+
   return (
     <Authenticator>
-    {({ signOut, user }) => (
+    {({ user }) => (
       <Layout title="save" >
         <Box sx={{mx: 'auto', width: '85%',  mt: 3}}>
-          <Typography>以下の内容を保存します</Typography>
+          <Box>
+            <StepLeader step={1} lead="保存するテーマ名を設定する" />
+            <Editable
+              label="Theme:"
+              placeHolder="簡単なテーマ名"
+              onChange={(ev: changeEvent) => setTheme(ev.target.value)}
+              rows={1}
+            />
+          </Box>
+          <Box sx={{display: "grid", }}>
+            <StepLeader step={2} lead="保存しましょう！" />
+            <Button
+              size="large" variant="contained" startIcon={<SaveAsIcon />}
+              sx={{width: "260px", m: 4, justifySelf: "center"}}
+              onClick={() => createNewAchievement(user.username, theme)}>
+                {saveResult}
+            </Button>
+          </Box>
           <ResultCard />
+          <Link href="/" passHref>
+            <Fab color="secondary" sx={{mt: 3}}>
+              <ArrowLeftIcon fontSize="large"/>
+            </Fab>
+          </Link>
         </Box>
       </Layout>
     )}
