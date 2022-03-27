@@ -51,8 +51,8 @@ const MyAchievementList: NextPage = () => {
             <Divider sx ={{mt: 1, mb: 3}} />
             <Box sx={{display: "flex", flexDirection: "row", gap: 3, flexWrap: "wrap"}}>
               {achievements?.data.listAchievements.items.length ?
-                achievements?.data.listAchievements.items.map((e: Achievement) => (
-                  <CardOfList item={e} />
+                achievements?.data.listAchievements.items.map((e: Achievement, index: React.Key) => (
+                  <CardOfList key={index} item={e} />
                 ))
               : <Typography variant="h5">未登録です</Typography>
               }
