@@ -1,14 +1,20 @@
-import { useRecoilValue } from 'recoil'
-import { Box, Card, Divider, Typography } from '@mui/material'
-import { selectBestAction } from '../Action/ActionState';
-import { selectRootCause } from '../Why/WhyState';
-import { CardHeader } from '@mui/material';
-import AddTaskIcon from '@mui/icons-material/AddTask';
 import React from 'react';
-import { CardContent } from '@mui/material';
-import AnalysisFigure from './AnalysisFigure';
+import { useRecoilValue } from 'recoil'
+
+import { selectBestAction } from 'components/viewModel/Action/ActionState';
+import { selectRootCause } from 'components/viewModel/Why/WhyState';
+import AnalysisFigure from 'components/viewModel/Result/AnalysisFigure';
+
+import CardHeader from '@mui/material/CardHeader';
+import Box from '@mui/material/Box'
+import Card from '@mui/material/Card'
+import Divider from '@mui/material/Divider'
+import Typography from '@mui/material/Typography'
+import CardContent from '@mui/material/CardContent';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import AddTaskIcon from '@mui/icons-material/AddTask';
 import { yellow } from '@mui/material/colors';
+
 export const ResultCard: React.FC = () => {
 
   const rootCause = useRecoilValue(selectRootCause);

@@ -1,14 +1,17 @@
-import * as React from 'react';
+import React from 'react';
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
+
+import FeatureMenu from 'components/header/FeatureMenu';
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import Logo from '/public/logo.svg'
-import FeatureMenu from './FeatureMenu';
 import Button from '@mui/material/Button'
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
 
 import { Auth } from 'aws-amplify'
+
+import Logo from '/public/logo.svg'
 
 export const Header: React.FC = () => {
 

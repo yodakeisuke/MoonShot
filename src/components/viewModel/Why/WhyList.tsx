@@ -1,33 +1,28 @@
-import React from "react"
-import { useCallback } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { useWhy } from "../../../hooks/useWhyStatus";
-import Button from "@mui/material/Button";
+import React from 'react'
+import { useCallback } from 'react';
+import { useRecoilState, useRecoilValue } from 'recoil';
+
+import Editable from 'components/shared/Editable';
+import { selectAllWhys, selectRootCause } from 'components/viewModel/Why/WhyState';
+import { Why } from 'components/viewModel/Why/WhyType';
+import { changeEvent } from 'components/viewModel/GlobalType';
+import { stateGap } from 'components/viewModel/Analysis/AnalysisState';
+import { useWhy } from 'hooks/useWhyStatus';
+
+import Button from '@mui/material/Button';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
-import { Box, List, ListItem } from "@mui/material";
-import Editable from "../../shared/Editable";
-import { selectAllWhys, selectRootCause } from "./WhyState";
-import { Why } from "./WhyType";
-import { changeEvent } from "../GlobalType";
-import { stateGap } from "../Analysis/AnalysisState";
-
-{/*const apiResponse = {
-  Whys: [
-    {id: 1, cause: "なぜなぜ"}
-  ],
-};*/}
+import Box from '@mui/material/Box';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
 
 export const WhyList: React.FC = () => {
+
   const [gap, setGap] = useRecoilState(stateGap);
   const whys: Why[] = useRecoilValue(selectAllWhys);
   const rootCause: Why = useRecoilValue(selectRootCause);
-  const { setUpWhys, upsertWhy, removeWhy, changeWhyCause } = useWhy();
-
-  {/*useEffect(() => {
-    setUpWhys(apiResponse.Whys);
-  }, []);*/}
+  const { upsertWhy, removeWhy, changeWhyCause } = useWhy();
 
   const addWhy = useCallback(() => {
     upsertWhy({

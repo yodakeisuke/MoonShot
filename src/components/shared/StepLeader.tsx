@@ -1,9 +1,9 @@
-import React from "react";
-import Typography from "@mui/material/Typography";
+import React from 'react';
+import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
-import Box from "@mui/material/Box";
-import Tooltip from "@mui/material/Tooltip";
-import Button from "@mui/material/Button";
+import Box from '@mui/material/Box';
+import Tooltip from '@mui/material/Tooltip';
+import Button from '@mui/material/Button';
 
 type Props = {
   step: number,

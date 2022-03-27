@@ -1,38 +1,32 @@
-import React from "react"
-import { selectAllActions, selectBottomActionId }from "./ActionState"
-import { useCallback } from "react";
-import { useRecoilValue } from "recoil";
-import { useAction } from "../../../hooks/useActionStatus";
-import { ActionId, Action } from "./ActionType";
-import Button from "@mui/material/Button";
-import { Box, IconButton, ListItem } from "@mui/material";
+import React from 'react'
+import { useCallback } from 'react';
+import { useRecoilValue } from 'recoil';
+
 import Editable from "../../shared/Editable";
+import { selectAllActions, selectBottomActionId }from 'components/viewModel/Action/ActionState'
+import { ActionId, Action } from './ActionType';
+import { selectRootCause } from 'components/viewModel/Why/WhyState';
+import { Why } from 'components/viewModel/Why/WhyType';
+import { useWhy } from 'hooks/useWhyStatus';
+import { useAction } from 'hooks/useActionStatus';
+import { changeEvent } from 'components/viewModel/GlobalType';
+
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import ListItem from '@mui/material/ListItem';
+import List from '@mui/material/List';
+import Button from '@mui/material/Button';
+import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-import { changeEvent } from "../GlobalType";
-import { selectRootCause } from "../Why/WhyState";
-import { Why} from "../Why/WhyType";
-import { useWhy } from "../../../hooks/useWhyStatus";
-import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
-import { List } from "@mui/material";
-
-{/*const apiResponse = {
-  Actions: [
-    {id: 1, plan: "アクション", isAdopted: false, cost: 50, performance: 50}
-  ],
-};*/}
 
 export const ActionList: React.FC = () => {
   const actions: Action[] = useRecoilValue(selectAllActions);
   const rootCause: Why = useRecoilValue(selectRootCause);
   const bottomActionId: ActionId = useRecoilValue(selectBottomActionId);
 
-  const { setUpActions, upsertAction, removeAction, changeActionPlan } = useAction();
+  const { upsertAction, removeAction, changeActionPlan } = useAction();
   const { changeWhyCause } = useWhy();
-
-  {/* useEffect(() => {
-    setUpActions(apiResponse.Actions);
-  }, []); */}
 
   const addAction = useCallback(() => {
     const newId: ActionId = bottomActionId + 1;

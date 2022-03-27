@@ -1,8 +1,12 @@
-import Box from '@mui/material/Box'
 import React from 'react'
-import { Card, CardContent, CardHeader } from '@mui/material';
 import { useRecoilValue } from 'recoil';
-import { stateAsIs, stateToBe, stateGap } from '../Analysis/AnalysisState';
+
+import { stateAsIs, stateToBe, stateGap } from 'components/viewModel/Analysis/AnalysisState';
+
+import Box from '@mui/material/Box'
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardHeader from '@mui/material/CardHeader';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import { yellow } from '@mui/material/colors';

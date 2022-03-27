@@ -1,12 +1,15 @@
 import { NextPage } from 'next';
 import React from 'react';
-import Layout from '../Layout';
 
-import { Authenticator } from '@aws-amplify/ui-react';
-import '@aws-amplify/ui-react/styles.css';
-import { Box, Button, Typography } from '@mui/material';
+import Layout from 'components/Layout';
+
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 import LogoutIcon from '@mui/icons-material/Logout';
+
+import { Authenticator } from '@aws-amplify/ui-react';
 
 const Account: NextPage = () => {
 

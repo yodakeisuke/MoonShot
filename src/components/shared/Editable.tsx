@@ -1,8 +1,9 @@
-import React from "react"
-import TextField from "@mui/material/TextField";
-import Paper from "@mui/material/Paper";
+import React from 'react'
 
-// Todo: react-hook-form
+import TextField from '@mui/material/TextField';
+import Paper from '@mui/material/Paper';
+
+// 検討: react-hook-form
 
 type Props = {
   label: string | number;

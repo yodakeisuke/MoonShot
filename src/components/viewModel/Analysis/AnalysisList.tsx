@@ -1,11 +1,13 @@
-import React, { useEffect } from "react"
-import { useRecoilCallback, useRecoilState } from "recoil";
-import { Box } from "@mui/material";
-import Editable from "../../shared/Editable";
-import { changeEvent } from "../GlobalType";
-import StepLeader from "../../shared/StepLeader";
-import { stateAsIs, stateGap, stateToBe } from "./AnalysisState";
-import { Analysis } from "./AnalysisType";
+import React, { useEffect } from 'react'
+import { useRecoilCallback, useRecoilState } from 'recoil';
+
+import Editable from 'components/shared/Editable';
+import StepLeader from 'components/shared/StepLeader';
+import { stateAsIs, stateGap, stateToBe } from 'components/viewModel/Analysis/AnalysisState';
+import { Analysis } from 'components/viewModel/Analysis/AnalysisType';
+import { changeEvent } from 'components/viewModel/GlobalType';
+
+import Box from '@mui/material/Box';
 
 const apiResponse = {
   Analysis:

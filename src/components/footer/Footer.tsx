@@ -1,7 +1,9 @@
 import Box from '@mui/material/Box'
-import React from 'react'
-import Typography from "@mui/material/Typography";
 import Link from 'next/link';
+
+import React from 'react'
+import Typography from '@mui/material/Typography';
+
 
 export const Footer: React.FC = () => {
   const MyGitHub: string = "https://github.com/yodakeisuke"

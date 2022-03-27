@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 
-import Layout from "./Layout";
+import Layout from "../components/Layout";
 import React from 'react';
 
 import StepperOverall from './stepsToAchieve/StepperOverall';

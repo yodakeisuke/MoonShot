@@ -1,5 +1,6 @@
-import { atom, atomFamily, selector, selectorFamily } from "recoil";
-import { WhyId, WhyCause, Why } from "./WhyType";
+import { atom, atomFamily, selector, selectorFamily } from 'recoil';
+
+import { WhyId, WhyCause, Why } from "components/viewModel/Why/WhyType";
 
 /* values */
 

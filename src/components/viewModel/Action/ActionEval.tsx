@@ -1,9 +1,13 @@
-import * as React from 'react';
-import Slider from '@mui/material/Slider';
-import { ActionId, ActionPlan } from './ActionType';
+import React from 'react';
 import { useRecoilState } from 'recoil';
-import { stateActionCost, stateActionPerformance } from './ActionState';
-import { Box, Paper, Typography } from '@mui/material';
+
+import { stateActionCost, stateActionPerformance } from 'components/viewModel/Action/ActionState';
+import { ActionId, ActionPlan } from 'components/viewModel/Action/ActionType';
+
+import Slider from '@mui/material/Slider';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 
