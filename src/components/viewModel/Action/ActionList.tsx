@@ -42,12 +42,12 @@ export const ActionList: React.FC = () => {
   return (
     <Box sx={{display: "flex", flexDirection: "column"}}>
       <Editable
-              onChange={(ev: changeEvent) => changeWhyCause(rootCause.id, ev.target.value)}
-              label="root cause" placeHolder={rootCause.cause}
+        onChange={(ev: changeEvent) => changeWhyCause(rootCause.id, ev.target.value)}
+        label="root cause" placeHolder={rootCause.cause}
       />
       <KeyboardDoubleArrowUpIcon sx={{alignSelf: "center"}}/>
       <List sx={{width: '100%'}}>
-        {actions.map((action?) => (
+        {actions.map((action) => (
           <ListItem key={action?.id} disablePadding={true}>
             <Box sx={{display :"flex", justifyContent: "space-between", alignItems: "center", flex: 1}}>
               <Editable onChange={(ev: changeEvent) => changeActionPlan(action?.id, ev.target.value)}

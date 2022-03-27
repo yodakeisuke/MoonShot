@@ -1,33 +1,15 @@
-import React, { useEffect } from 'react'
-import { useRecoilCallback, useRecoilState } from 'recoil';
-
-import Editable from 'components/shared/Editable';
-import StepLeader from 'components/shared/StepLeader';
-import { stateAsIs, stateGap, stateToBe } from 'components/viewModel/Analysis/AnalysisState';
-import { Analysis } from 'components/viewModel/Analysis/AnalysisType';
-import { changeEvent } from 'components/viewModel/GlobalType';
-
-import Box from '@mui/material/Box';
-
-const apiResponse = {
-  Analysis:
-    {asIs: "a", toBe: "b", gap: "c"}
-};
+import React from "react"
+import { useRecoilState } from "recoil";
+import { Box } from "@mui/material";
+import Editable from "../../shared/Editable";
+import { changeEvent } from "../GlobalType";
+import StepLeader from "../../shared/StepLeader";
+import { stateAsIs, stateGap, stateToBe } from "./AnalysisState";
 
 export const AnalysisList: React.FC = () => {
   const [asIs, setAsIs] = useRecoilState(stateAsIs);
   const [toBe, setToBe] = useRecoilState(stateToBe);
   const [gap, setGap] = useRecoilState(stateGap);
-
-  useEffect(() => {
-    setUpAnalysis(apiResponse.Analysis);
-  }, []);
-
-  const setUpAnalysis = useRecoilCallback(() => (analysis: Analysis) => {
-    setAsIs(analysis.asIs);
-    setToBe(analysis.toBe);
-    setGap(analysis.gap);
-  });
 
   return (
     <Box sx={{display: 'grid', gap: 3}}>

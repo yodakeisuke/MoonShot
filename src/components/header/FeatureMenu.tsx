@@ -31,16 +31,6 @@ export const FeatureMenu : React.FC<Props> = () => {
     setAnchorEl(null);
   };
 
-  async function signOut() {
-    try {
-      await Auth.signOut();
-
-    }
-    catch (error) {
-      console.log('error signing out: ', error);
-    }
-  };
-
   return (
       <React.Fragment>
         <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
@@ -102,7 +92,7 @@ export const FeatureMenu : React.FC<Props> = () => {
             </Link>
           </MenuItem>
           <MenuItem>
-            <Link href="/MyAchievementList" passHref>
+            <Link href="/findAchievements/FindAchievements" as="findAchievements" passHref>
               <MuiLink underline="none" color="inherit">
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                   <TravelExploreIcon />&ensp;みんなの問題解決を探す
