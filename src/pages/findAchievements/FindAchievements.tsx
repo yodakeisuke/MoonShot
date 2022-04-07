@@ -7,13 +7,13 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
 const FindAchievements: NextPage = () => {
-  return(
+  return (
     <Layout title="findAchievements">
       <Box>
         <Typography>実装中です！</Typography>
       </Box>
     </Layout>
-  )
-}
+  );
+};
 
-export default FindAchievements
+export default FindAchievements;

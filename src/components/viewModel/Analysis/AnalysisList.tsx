@@ -4,7 +4,7 @@ import { useRecoilState } from 'recoil';
 import Editable from 'components/shared/Editable';
 import StepLeader from 'components/shared/StepLeader';
 import { stateAsIs, stateGap, stateToBe } from 'components/viewModel/Analysis/AnalysisState';
-import { changeEvent } from 'components/viewModel/GlobalType';
+import { ChangeEvent } from 'components/viewModel/GlobalType';
 
 import Box from '@mui/material/Box';
 
@@ -14,21 +14,21 @@ export const AnalysisList: React.FC = () => {
   const [gap, setGap] = useRecoilState(stateGap);
 
   return (
-    <Box sx={{display: 'grid', gap: 3}}>
+    <Box sx={{ display: 'grid', gap: 3 }}>
       <Box>
         <StepLeader step={1} lead="理想の状態を書き出す" />
         <Editable
           label="ToBe:"
           placeHolder={asIs}
-          onChange={(ev: changeEvent) => setAsIs(ev.target.value)}
+          onChange={(ev: ChangeEvent) => setAsIs(ev.target.value)}
         />
       </Box>
       <Box>
-      <StepLeader step={2} lead="現在の状態を書き出す" />
+        <StepLeader step={2} lead="現在の状態を書き出す" />
         <Editable
           label="AsIs:"
           placeHolder={toBe}
-          onChange={(ev: changeEvent) => setToBe(ev.target.value)}
+          onChange={(ev: ChangeEvent) => setToBe(ev.target.value)}
         />
       </Box>
       <Box>
@@ -36,11 +36,11 @@ export const AnalysisList: React.FC = () => {
         <Editable
           label="Gap:"
           placeHolder={gap}
-          onChange={(ev: changeEvent) => setGap(ev.target.value)}
+          onChange={(ev: ChangeEvent) => setGap(ev.target.value)}
         />
       </Box>
     </Box>
   );
 };
 
-export default AnalysisList
+export default AnalysisList;

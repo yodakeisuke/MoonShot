@@ -3,7 +3,6 @@ import { stateWhyCause, stateWhyIds } from 'components/viewModel/Why/WhyState';
 import { WhyId, WhyCause, Why } from 'components/viewModel/Why/WhyType';
 
 export const useWhy = () => {
-
   const upsertWhy = useRecoilTransaction_UNSTABLE(({set}) => (newWhy: Why) => {
     set(stateWhyIds, (prev => [...prev,newWhy.id]));
     set(stateWhyCause(newWhy.id),newWhy.cause);
