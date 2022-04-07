@@ -1,15 +1,14 @@
-import React from 'react'
-import { useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { useRecoilValue } from 'recoil';
 
-import Editable from "../../shared/Editable";
-import { selectAllActions, selectBottomActionId }from 'components/viewModel/Action/ActionState'
-import { ActionId, Action } from './ActionType';
+import Editable from 'components/shared/Editable';
+import { selectAllActions, selectBottomActionId } from 'components/viewModel/Action/ActionState';
+import { ActionId, Action } from 'components/viewModel/Action/ActionType';
 import { selectRootCause } from 'components/viewModel/Why/WhyState';
 import { Why } from 'components/viewModel/Why/WhyType';
 import { useWhy } from 'hooks/useWhyStatus';
 import { useAction } from 'hooks/useActionStatus';
-import { changeEvent } from 'components/viewModel/GlobalType';
+import { ChangeEvent } from 'components/viewModel/GlobalType';
 
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
@@ -32,38 +31,47 @@ export const ActionList: React.FC = () => {
     const newId: ActionId = bottomActionId + 1;
     upsertAction({
       id: newId,
-      plan: "",
+      plan: '',
       isAdopted: false,
       cost: 50,
       performance: 50,
     });
-  }, [actions, upsertAction])
+  }, [upsertAction, bottomActionId]);
 
   return (
-    <Box sx={{display: "flex", flexDirection: "column"}}>
+    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
       <Editable
-        onChange={(ev: changeEvent) => changeWhyCause(rootCause.id, ev.target.value)}
-        label="root cause" placeHolder={rootCause.cause}
+        onChange={(ev: ChangeEvent) => changeWhyCause(rootCause.id, ev.target.value)}
+        label="root cause"
+        placeHolder={rootCause.cause}
       />
-      <KeyboardDoubleArrowUpIcon sx={{alignSelf: "center"}}/>
-      <List sx={{width: '100%'}}>
+      <KeyboardDoubleArrowUpIcon sx={{ alignSelf: 'center' }} />
+      <List sx={{ width: '100%' }}>
         {actions.map((action) => (
-          <ListItem key={action?.id} disablePadding={true}>
-            <Box sx={{display :"flex", justifyContent: "space-between", alignItems: "center", flex: 1}}>
-              <Editable onChange={(ev: changeEvent) => changeActionPlan(action?.id, ev.target.value)}
-                label="then..." placeHolder={action?.plan}/>
+          <ListItem key={action?.id} disablePadding>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flex: 1 }}>
+              <Editable
+                onChange={(ev: ChangeEvent) => changeActionPlan(action?.id, ev.target.value)}
+                label="then..."
+                placeHolder={action?.plan}
+              />
               <IconButton onClick={() => removeAction(action?.id)}>
-                <DeleteForeverIcon/ >
+                <DeleteForeverIcon />
               </IconButton>
             </Box>
           </ListItem>
-          ))
-        }
+        )) }
       </List>
-      <Button onClick={addAction}
-        variant="contained" size="medium" sx={{width: "20%", alignSelf: "center"}}>
+      <Button
+        onClick={addAction}
+        variant="contained"
+        size="medium"
+        sx={{ width: '20%', alignSelf: 'center' }}
+      >
         <AddCircleIcon />
       </Button>
     </Box>
   );
 };
+
+export default ActionList;

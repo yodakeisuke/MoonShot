@@ -5,6 +5,18 @@
     "airbnb",
     "airbnb-typescript"
   ],
+  "rules": {
+    "react/function-component-definition": "off",
+    "react/jsx-props-no-spreading": "off",
+    "import/no-named-as-default": "off",
+    "arrow-body-style": "off",
+    "object-curly-newline": "off",
+    "react/jsx-fragments": "off",
+    "import/no-absolute-path": "off",
+    "react/no-array-index-key": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "react/require-default-props": "off"
+  },
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true

@@ -1,4 +1,3 @@
-
-export type clickEvent = React.MouseEvent<HTMLInputElement>;
-export type changeEvent = React.ChangeEvent<HTMLInputElement>;
-export type submitEvent = React.FormEvent<HTMLFormElement>;
+export type ClickEvent = React.MouseEvent<HTMLInputElement>;
+export type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
+export type SubmitEvent = React.FormEvent<HTMLFormElement>;

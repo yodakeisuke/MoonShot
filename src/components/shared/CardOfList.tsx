@@ -1,7 +1,6 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-import { AchivementId, Achievement } from "components/viewModel/Result/AchievementType";
+import { AchivementId, Achievement } from 'components/viewModel/Result/AchievementType';
 
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
@@ -18,40 +17,44 @@ type Props = {
   item: Achievement;
 };
 
-export const CardOfList: React.FC<Props> = ({item}) => {
-  const [deleteResult, setdeleteResult] = useState<String>("delete")
+export const CardOfList: React.FC<Props> = ({ item }) => {
+  const [deleteResult, setdeleteResult] = useState<String>('delete');
 
   const removeAchievement = async (deleteId: AchivementId) => {
-    const input = { id: deleteId }
+    const input = { id: deleteId };
     await API.graphql(graphqlOperation(deleteAchievement, { input }));
-    setdeleteResult("Deleted!");
-  }
+    setdeleteResult('Deleted!');
+  };
+
   return (
-    <Card sx={{ width: 320, display: "grid" }}>
+    <Card sx={{ width: 320, display: 'grid' }}>
       <CardHeader title={item.theme} />
       <CardContent>
         <Chip label="AsIs" size="small" />
-        <Typography sx={{mb: 1}}>{item.asIs}</Typography>
+        <Typography sx={{ mb: 1 }}>{item.asIs}</Typography>
         <Chip label="ToBe" size="small" />
-        <Typography sx={{mb: 1}}>{item.toBe}</Typography>
+        <Typography sx={{ mb: 1 }}>{item.toBe}</Typography>
         <Chip label="Gap" size="small" />
-        <Typography sx={{mb: 1}}>{item.gap}</Typography>
+        <Typography sx={{ mb: 1 }}>{item.gap}</Typography>
         <Chip label="Cause" size="small" />
-        <Typography sx={{mb: 1}}>{item.cause}</Typography>
+        <Typography sx={{ mb: 1 }}>{item.cause}</Typography>
         <Chip label="Action" size="small" />
-        <Typography sx={{mb: 1}}>{item.action}</Typography>
+        <Typography sx={{ mb: 1 }}>{item.action}</Typography>
       </CardContent>
-      <CardActions sx={{display: "flex", justifyContent: 'space-between', alignSelf: "end"}}>
+      <CardActions sx={{ display: 'flex', justifyContent: 'space-between', alignSelf: 'end' }}>
         <Button color="primary" variant="contained">
           View
         </Button>
-        <Button onClick={ () => removeAchievement(item.id) }
-          color="primary" variant="contained">
+        <Button
+          onClick={() => removeAchievement(item.id)}
+          color="primary"
+          variant="contained"
+        >
           {deleteResult}
         </Button>
       </CardActions>
     </Card>
-  )
-}
+  );
+};
 
-export default CardOfList
+export default CardOfList;

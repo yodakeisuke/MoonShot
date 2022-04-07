@@ -8,12 +8,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@aws-amplify/ui-react": "^2.10.4",
+    "@aws-amplify/api": "^4.0.37",
+    "@aws-amplify/ui-react": "^2.15.0",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@mui/icons-material": "^5.3.1",
     "@mui/material": "^5.4.0",
-    "aws-amplify": "^4.3.17",
+    "aws-amplify": "^4.3.19",
     "next": "^12.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",

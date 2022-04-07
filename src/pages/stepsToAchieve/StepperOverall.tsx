@@ -1,10 +1,10 @@
 import React from 'react';
 import { NextPage } from 'next';
 
-import FocusOnTheTarget from './Step1FocusOnTheTarget';
-import DigInto from './Step2DigInto';
-import Planning from './Step3Planning';
-import Results from './Step4Results';
+import FocusOnTheTarget from 'pages/stepsToAchieve/Step1FocusOnTheTarget';
+import DigInto from 'pages/stepsToAchieve/Step2DigInto';
+import Planning from 'pages/stepsToAchieve/Step3Planning';
+import Results from 'pages/stepsToAchieve/Step4Results';
 
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
@@ -19,10 +19,10 @@ import Fab from '@mui/material/Fab';
 const steps = ['問題の抽出', '原因の深堀り', '対策の立案'];
 
 const stepsComponents = [
-  <FocusOnTheTarget key={'firstStep'} />,
-  <DigInto key={'secondStep'} />,
-  <Planning key={'thirdStep'} />,
-  <Results key={'fourthStep'} />,
+  <FocusOnTheTarget key="firstStep" />,
+  <DigInto key="secondStep" />,
+  <Planning key="thirdStep" />,
+  <Results key="fourthStep" />,
 ];
 
 export const StepperOverall: NextPage = () => {
@@ -36,9 +36,9 @@ export const StepperOverall: NextPage = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const getStepContent = (activeStep :number) => {
-    return stepsComponents[activeStep]
-    };
+  const getStepContent = () => {
+    return stepsComponents[activeStep];
+  };
 
   return (
     <Box>
@@ -52,25 +52,24 @@ export const StepperOverall: NextPage = () => {
           );
         })}
       </Stepper>
-      <Box sx={{mx: 'auto', width: '85%',  mt: 3}}>
+      <Box sx={{ mx: 'auto', width: '85%', mt: 3 }}>
         {!(activeStep === steps.length) ? (
           <React.Fragment>
-            <Box>{getStepContent(activeStep)}</Box>
-            <Box sx={{ display: 'flex', pt: 2, justifyContent: 'space-between'}}>
+            <Box>{getStepContent()}</Box>
+            <Box sx={{ display: 'flex', pt: 2, justifyContent: 'space-between' }}>
               <Fab
                 color="secondary"
                 disabled={activeStep === 0}
                 onClick={handleBack}
               >
-                <ArrowLeftIcon fontSize="large"/>
+                <ArrowLeftIcon fontSize="large" />
               </Fab>
               <Fab
                 color="secondary"
                 onClick={handleNext}
               >
-                {activeStep === steps.length - 1 ?
-                  ( <DoneAllIcon /> ) : (<ArrowRightIcon fontSize="large"/> )
-                }
+                { activeStep === steps.length - 1
+                  ? (<DoneAllIcon />) : (<ArrowRightIcon fontSize="large" />) }
               </Fab>
             </Box>
           </React.Fragment>
@@ -79,19 +78,19 @@ export const StepperOverall: NextPage = () => {
             <Typography variant="h6" align="center" sx={{ my: 3 }}>
               All steps completed !
             </Typography>
-            <Box>{getStepContent(activeStep)}</Box>
+            <Box>{ getStepContent() }</Box>
             <Fab
               color="secondary"
               disabled={activeStep === 0}
               onClick={handleBack}
             >
-              <ArrowLeftIcon fontSize="large"/>
+              <ArrowLeftIcon fontSize="large" />
             </Fab>
           </React.Fragment>
-        )}
+        ) }
       </Box>
     </Box>
   );
-}
+};
 
-export default StepperOverall
+export default StepperOverall;

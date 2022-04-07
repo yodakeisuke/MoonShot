@@ -1,7 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NextPage } from 'next';
-import { useEffect } from 'react';
-import { useState } from 'react';
 
 import Layout from 'components/Layout';
 
@@ -17,33 +15,32 @@ import API, { graphqlOperation } from '@aws-amplify/api';
 import { listAchievements } from 'graphql/queries';
 
 const MyAchievementList: NextPage = () => {
-
-  const [userName, setUserName] = useState<String>("");
-  {/* todo: any見直す */}
+  const [userName, setUserName] = useState<String>('');
+  /* todo: any見直す */
   const [achievements, setAchievements] = useState<any>();
 
   const getAllAchievements = async (_userName: String) => {
-    const _filter = {user: {eq: _userName}};
-    const _result = await API.graphql(graphqlOperation(listAchievements, {filter: _filter}));
-    setAchievements(_result);
+    const filter = { user: { eq: _userName } };
+    const result = await API.graphql(graphqlOperation(listAchievements, { filter }));
+    setAchievements(result);
   };
 
   const setCurrentUserName = async () => {
     try {
-      const user = await Auth.currentAuthenticatedUser()
-      setUserName(user.username)
+      const user = await Auth.currentAuthenticatedUser();
+      setUserName(user.username);
     } catch (e) {
-      setUserName("")
+      setUserName('');
     }
-  }
+  };
 
   useEffect(() => {
-    setCurrentUserName()
-  }, )
+    getAllAchievements(userName);
+  }, [userName]);
 
   useEffect(() => {
-    getAllAchievements(userName)
-  }, [userName])
+    setCurrentUserName();
+  });
 
   return (
     <Authenticator>
@@ -51,20 +48,21 @@ const MyAchievementList: NextPage = () => {
         <Layout title="myAchievements">
           <Box>
             <Typography variant="h4">MyList</Typography>
-            <Divider sx ={{mt: 1, mb: 3}} />
-            <Box sx={{display: "flex", flexDirection: "row", gap: 3, flexWrap: "wrap"}}>
-              {achievements?.data.listAchievements.items.length ?
-                achievements?.data.listAchievements.items.map((e: Achievement, index: React.Key) => (
-                  <CardOfList key={index} item={e} />
-                ))
-              : <Typography variant="h5">未登録です</Typography>
-              }
+            <Divider sx={{ mt: 1, mb: 3 }} />
+            <Box sx={{ display: 'flex', flexDirection: 'row', gap: 3, flexWrap: 'wrap' }}>
+              { achievements?.data.listAchievements.items.length
+                ? achievements?.data.listAchievements.items.map(
+                  (e: Achievement, index: React.Key) => (
+                    <CardOfList key={index} item={e} />
+                  ),
+                )
+                : <Typography variant="h5">未登録です</Typography> }
             </Box>
-        </Box>
+          </Box>
         </Layout>
       )}
     </Authenticator>
-  )
-}
+  );
+};
 
-export default MyAchievementList
+export default MyAchievementList;

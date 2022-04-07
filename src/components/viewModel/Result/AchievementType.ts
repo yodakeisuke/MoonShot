@@ -1,6 +1,6 @@
-import { AsIs, ToBe, Gap } from '../Analysis/AnalysisType';
+import { AsIs, ToBe, Gap } from 'components/viewModel/Analysis/AnalysisType';
 import { WhyCause } from 'components/viewModel/Why/WhyType';
-import { ActionPlan  } from 'components/viewModel/Action/ActionType';
+import { ActionPlan } from 'components/viewModel/Action/ActionType';
 
 export type AchivementId = String;
 
