@@ -13,10 +13,11 @@ import CssBaseline from '@mui/material/CssBaseline';
 
 Amplify.configure(awsExports);
 
-const App: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => (
+const App: React.FC<AppProps> = ({ Component, pageProps }: AppProps): JSX.Element => (
   <ThemeProvider theme={lightTheme}>
     <CssBaseline />
     <Authenticator.Provider>
+      {/* @ts-expect-error: recoilアップデート→0.7により発生。原因不明。 */}
       <RecoilRoot>
         <Component {...pageProps} />
       </RecoilRoot>
