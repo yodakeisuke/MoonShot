@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 
-import ActionEval from './ActionEval';
+import ActionEval from 'components/viewModel/Action/ActionEval';
 
 export const ActionEvalList: React.FC = () => {
   const actions: Action[] = useRecoilValue(selectAllActions);
