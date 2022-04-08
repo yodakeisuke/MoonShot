@@ -15,16 +15,6 @@
     "strictFunctionTypes": true,  // 関数の代入時、引数型の範囲を狭める代入を許さない（引数の共変性を無くす）
     "useUnknownInCatchVariables": true,   // 例外が捕捉した値を全てunknown型として解釈する。
     /* ここまでstrict: trueでonになるもの */
-    "allowUnreachableCode": false, // 到達不能コードはコンパイルエラー
-    "allowUnusedLabels": false,   // 使用されない変数はコンパイルエラー
-    "exactOptionalPropertyTypes": true,   // オプショナルなプロパティにundifinedを渡すとエラー。そもそも値がない、ではなくundifinedをとる場合undifinedとのユニオン型にするべし
-    "noFallthroughCasesInSwitch": true,   // 所謂switch文のフォールスルーをさせない、breakかreturnを確約。
-    "noImplicitOverride": true,  // メソッドのオーバーライド時にoverrideキーワードを強制する
-    "noImplicitReturns": true,   // 関数の全てのコードパスが値を返却していなければエラー。
-    "noPropertyAccessFromIndexSignature": true,  // インデックス型を持つオブジェクトプロパティに対して、[]でのアクセスを強制(.によるアクセスはエラー)
-    "noUncheckedIndexedAccess": true,   // インデックス型や未定義のプロパティの型を自動的にundifinedとのユニオンにする
-    "noUnusedLocals": true,      // 利用されていないローカル変数があればコンパイルエラー。
-    "noUnusedParameters": true,  // 利用されていない関数の引数があればコンパイルエラー。
     /* type cheking end */
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
