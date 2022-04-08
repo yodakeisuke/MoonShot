@@ -1,5 +1,5 @@
 {
-  "name": "okr_app",
+  "name": "moonshot",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@aws-amplify/api": "^4.0.37",
-    "@aws-amplify/ui-react": "^2.15.0",
+    "@aws-amplify/ui-react": "^2.15.1",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@mui/icons-material": "^5.3.1",
