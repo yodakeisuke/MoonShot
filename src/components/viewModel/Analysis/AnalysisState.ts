@@ -1,5 +1,5 @@
 import { atom } from 'recoil';
-import { AsIs, ToBe, Gap } from './AnalysisType';
+import { AsIs, ToBe, Gap } from 'components/viewModel/Analysis/AnalysisType';
 
 /* values */
 

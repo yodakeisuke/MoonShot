@@ -3,8 +3,8 @@ import Head from 'next/head';
 
 import Box from '@mui/material/Box';
 
-import AppBar from './header/Header';
-import Footer from './footer/Footer';
+import AppBar from 'components/header/Header';
+import Footer from 'components/footer/Footer';
 
 type Props = {
   title: string

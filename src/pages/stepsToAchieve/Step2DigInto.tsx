@@ -2,9 +2,9 @@ import React from 'react';
 import type { NextPage } from 'next';
 
 import Box from '@mui/material/Box';
-import StepLeader from '../../components/shared/StepLeader';
+import StepLeader from 'components/shared/StepLeader';
 
-import { WhyList } from '../../components/viewModel/Why/WhyList';
+import { WhyList } from 'components/viewModel/Why/WhyList';
 
 const DigInto: NextPage = () => {
   return (

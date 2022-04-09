@@ -1,5 +1,5 @@
 import { atom, atomFamily, selector, selectorFamily } from 'recoil';
-import { ActionId, ActionPlan, IsAdopted, Action, ActionCost, ActionPerformance } from './ActionType';
+import { ActionId, ActionPlan, IsAdopted, Action, ActionCost, ActionPerformance } from 'components/viewModel/Action/ActionType';
 
 /* values */
 
