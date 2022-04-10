@@ -2,6 +2,10 @@ import { atom, atomFamily, selector, selectorFamily } from 'recoil';
 
 import { WhyId, WhyCause, Why } from 'components/viewModel/Why/WhyType';
 
+/* functions */
+
+export const aryMax = (a: WhyId, b: WhyId) => { return Math.max(a, b); };
+
 /* values */
 
 export const stateWhyIds = atom<WhyId[]>({
@@ -32,7 +36,6 @@ export const selectRootCause = selector<Why>({
   key: 'getRootCause',
   get: ({ get }) => {
     const Ids: WhyId[] = get(stateWhyIds);
-    const aryMax = (a: WhyId, b: WhyId) => { return Math.max(a, b); };
     const BottomId = Ids.length ? Ids.reduce(aryMax) : 0;
     return get(selectWhy(BottomId));
   },
