@@ -3,7 +3,8 @@
     "next/core-web-vitals",
     "prettier",
     "airbnb",
-    "airbnb-typescript"
+    "airbnb-typescript",
+    "plugin:storybook/recommended"
   ],
   "rules": {
     "react/function-component-definition": "off",
