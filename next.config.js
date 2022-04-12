@@ -7,7 +7,6 @@ const nextConfig = {
       issuer: /\.[jt]sx?$/,
       use: ['@svgr/webpack'],
     })
-    config.plugins.push(new webpack.IgnorePlugin(/\.stor(ies|y).[tj]sx$/));
     return config
   }
 }
