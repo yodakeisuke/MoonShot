@@ -16,7 +16,15 @@
     "import/no-absolute-path": "off",
     "react/no-array-index-key": "off",
     "jsx-a11y/anchor-is-valid": "off",
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.stories.tsx"
+        ]
+      }
+    ]
   },
   "parserOptions": {
     "ecmaFeatures": {

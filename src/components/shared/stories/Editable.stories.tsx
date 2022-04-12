@@ -1,10 +1,11 @@
-import { ComponentMeta, ComponentStoryObj } from '@storybook/react'
+import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
 import React from 'react';
-import Editable from '../Editable';
 
 import { ThemeProvider } from '@mui/material/styles';
-import lightTheme from '../../../components/Theme';
 import CssBaseline from '@mui/material/CssBaseline';
+import lightTheme from 'components/Theme';
+
+import Editable from 'components/shared/Editable';
 
 export default {
   component: Editable,
@@ -15,7 +16,7 @@ export default {
           <CssBaseline />
           <Story />
         </ThemeProvider>
-      )
+      );
     },
   ],
 } as ComponentMeta<typeof Editable>;
@@ -26,13 +27,14 @@ export const Index: ComponentStoryObj<typeof Editable> = {
     placeHolder: 'holder',
     rows: 2,
     onChange: () => {},
-  }
+  },
 };
-export const verticallyLong: ComponentStoryObj<typeof Editable> = {
+
+export const VerticallyLong: ComponentStoryObj<typeof Editable> = {
   args: {
     label: 'verticallyLong',
     placeHolder: 'holder',
     rows: 5,
     onChange: () => {},
-  }
+  },
 };
