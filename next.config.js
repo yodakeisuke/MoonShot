@@ -6,8 +6,8 @@ const nextConfig = {
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
       use: ['@svgr/webpack'],
-      ignore: [/\.stor(ies|y).[tj]sx$/],
     })
+    config.plugins.push(new webpack.IgnorePlugin(/\.stor(ies|y).[tj]sx$/));
     return config
   }
 }
