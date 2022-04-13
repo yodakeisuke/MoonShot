@@ -9,7 +9,7 @@ export default {
 export const Index: ComponentStoryObj<typeof Editable> = {
   args: {
     label: 'story',
-    placeHolder: 'holder',
+    placeHolder: 'holder1',
     rows: 2,
     onChange: () => {},
   },
@@ -18,7 +18,7 @@ export const Index: ComponentStoryObj<typeof Editable> = {
 export const VerticallyLong: ComponentStoryObj<typeof Editable> = {
   args: {
     label: 'verticallyLong',
-    placeHolder: 'holder',
+    placeHolder: 'holder2',
     rows: 5,
     onChange: () => {},
   },
