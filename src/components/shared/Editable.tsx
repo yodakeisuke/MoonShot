@@ -23,12 +23,11 @@ export const Editable: React.FC<Props> = ({ label, placeHolder = '', rows = 2, o
         rows={rows}
         defaultValue={placeHolder}
         variant="standard"
-        color="info"
+        color="primary"
         inputProps={{ style: { fontSize: 'clamp(14px, 2.5vw, 17px)' } }}
         sx={{ ml: 2, my: 1, width: '90%' }}
         onChange={onChange}
       />
-      {"change"}
     </Paper>
   );
 };
